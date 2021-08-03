@@ -76,9 +76,9 @@ class EnvTest extends TestCase
         $cases = [
             true => ["(true)", "true"],
             false => ["(false)", "false"],
-            "" => ["empty", "(empty)"],
+            '' => ["empty", "(empty)"],
             null => ["null", '(null)'],
-            "bar" => ["'bar'", '"bar"']
+            "bar" => ["'bar'", '"bar"'],
         ];
         foreach ($cases as $expected => $tests) {
             foreach ($tests as $test) {
@@ -105,5 +105,11 @@ class EnvTest extends TestCase
     {
         $env = Env::create("foo", $expected = Env::STAGING);
         $this->assertEquals((string)$env, $expected);
+    }
+
+    public function testSetDefaultEnv()
+    {
+        Env::default(Env::STAGING);
+        $this->assertTrue((new Env("foo"))->isStaging());
     }
 }

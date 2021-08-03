@@ -3,9 +3,9 @@
 
 namespace Atom\Framework\Http;
 
-trait Format
+trait ConvertMimeTypeToFormat
 {
-    public static array $MIME_MAP = [
+    private static array $MIME_MAP = [
         'video/3gpp2' => '3g2',
         'video/3gp' => '3gp',
         'video/3gpp' => '3gp',
@@ -186,7 +186,7 @@ trait Format
         'text/x-scriptzsh' => 'zsh',
     ];
 
-    public function getFormat(string $mime): ?string
+    protected function getFormatOfMime(string $mime): ?string
     {
         return self::$MIME_MAP[$mime] ?? null;
     }

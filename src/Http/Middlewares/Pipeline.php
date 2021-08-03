@@ -2,8 +2,8 @@
 
 namespace Atom\Framework\Http\Middlewares;
 
-use Atom\Framework\Exceptions\RequestHandlerException;
 use Atom\Framework\Http\RequestHandler;
+use Exception;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -24,12 +24,13 @@ class Pipeline extends AbstractMiddleware
      * @param ServerRequestInterface $request
      * @param RequestHandler $handler
      * @return ResponseInterface
-     * @throws RequestHandlerException
+     * @throws Exception
      */
     public function run(ServerRequestInterface $request, RequestHandler $handler): ResponseInterface
     {
-        $handler->load($this->middlewares);
-        return $handler->handle($request);
+        return $handler
+            ->withNext($this->middlewares)
+            ->handle($request);
     }
 
     public static function create(array $middlewares): Pipeline

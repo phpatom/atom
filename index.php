@@ -1,53 +1,31 @@
 <?php
 
-use Atom\Framework\Contracts\PipelineProcessorContract;
-use Atom\Framework\Http\Pipeline;
-use Atom\Framework\Http\PipelineFactory;
+use Atom\DI\Exceptions\CircularDependencyException;
+use Atom\DI\Exceptions\ContainerException;
+use Atom\DI\Exceptions\MultipleBindingException;
+use Atom\DI\Exceptions\NotFoundException;
+use Atom\Event\Exceptions\ListenerAlreadyAttachedToEvent;
+use Atom\Framework\Http\Middlewares\Middleware;
+use Atom\Framework\Http\RequestHandler;
+use Atom\Framework\Http\Response;
 
 require_once "vendor/autoload.php";
-ini_set('display_errors', 1);
 
-$fac = new PipelineFactory();
-function add(int $i, int $j)
+/**
+ * @throws CircularDependencyException
+ * @throws ContainerException
+ * @throws ListenerAlreadyAttachedToEvent
+ * @throws NotFoundException
+ * @throws ReflectionException
+ * @throws Throwable
+ */
+function run()
 {
-    echo "ajout de $i sur $j \n";
-    return $i + $j;
+    ini_set("display_errors","1");
+    $app = atom(__DIR__);
+    $app->post("/hello/{name}", function (string $name) {
+        return Response::text("hello, $name");
+    });
+    $app->withRouting()->run();
 }
-
-function multiply(int $i, int $j)
-{
-    echo "multiplication de $i fois $j \n";
-    return $i * $j;
-}
-
-class FunctionProcessor implements PipelineProcessorContract
-{
-
-    public function process($data, $handler, $pipeline)
-    {
-        return $handler($data, $pipeline);
-    }
-
-    public function shouldStop($res): bool
-    {
-        return $res == 22;
-    }
-}
-
-$pipeline = Pipeline::send(2)->through([
-    fn($i) => add($i, 2),
-    function ($i, $h) {
-        $res = $h->run() * 2;
-        echo "fin\n";
-        return $res;
-    },
-    function ($i, $h) {
-        $res = $h->run() * 2;
-        echo "fin 2\n";
-        return $res;
-    },
-    fn($i) => add($i, 10),
-    fn($i) => multiply($i, 2),
-
-])->via(new FunctionProcessor())->make();
-var_dump($pipeline->run());
+run();

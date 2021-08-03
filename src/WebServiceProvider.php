@@ -5,6 +5,7 @@ namespace Atom\Framework;
 use Atom\DI\Container;
 use Atom\DI\Exceptions\CircularDependencyException;
 use Atom\DI\Exceptions\ContainerException;
+use Atom\DI\Exceptions\MultipleBindingException;
 use Atom\DI\Exceptions\NotFoundException;
 use Atom\Event\Exceptions\ListenerAlreadyAttachedToEvent;
 use Atom\Framework\Contracts\EmitterContract;
@@ -152,7 +153,7 @@ class WebServiceProvider implements ServiceProviderContract
 
     /**
      * @param Kernel $kernel
-     * @throws Exceptions\AppAlreadyBootedException
+     * @throws Exceptions\AppAlreadyBootedException|MultipleBindingException
      */
     private function providePath(Kernel $kernel)
     {

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/dani/Projects/atom/web/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="_css/style.css" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/home/dani/Projects/atom/web/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Events/AppFailed.php.html#13">Atom\Framework\Events\AppFailed</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/BootFailed.php.html#10">Atom\Framework\Events\BootFailed</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/MiddlewareLoaded.php.html#9">Atom\Framework\Events\MiddlewareLoaded</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/InvalidRouteHandlerException.php.html#10">Atom\Framework\Exceptions\InvalidRouteHandlerException</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#9">Atom\Framework\FileSystem\DiskManager</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManagerProvider.php.html#10">Atom\Framework\FileSystem\DiskManagerProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/InMemory.php.html#10">Atom\Framework\FileSystem\Disks\InMemory</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/Local.php.html#12">Atom\Framework\FileSystem\Disks\Local</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/PathProvider.php.html#10">Atom\Framework\FileSystem\PathProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#32">Atom\Framework\Http\Emitter\AbstractSapiEmitter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiEmitter.php.html#11">Atom\Framework\Http\Emitter\SapiEmitter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#19">Atom\Framework\Http\Emitter\SapiStreamEmitter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/AbstractMiddleware.php.html#11">Atom\Framework\Http\Middlewares\AbstractMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#20">Atom\Framework\Http\Middlewares\DispatchRoutes</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/Pipeline.php.html#10">Atom\Framework\Http\Middlewares\Pipeline</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pipeline/NullProcessor.php.html#8">Atom\Framework\Pipeline\NullProcessor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rendering/RoutingExtensionProvider.php.html#9">Atom\Framework\Rendering\RoutingExtensionProvider</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/DefinitionToResponseTrait.php.html#19">Atom\Framework\Http\Middlewares\DefinitionToResponseTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/ServiceProviderRegistrationFailure.php.html#10">Atom\Framework\Events\ServiceProviderRegistrationFailure</a></td><td class="text-right">60%</td></tr>
+       <tr><td><a href="Http/Middlewares/FunctionCallback.php.html#15">Atom\Framework\Http\Middlewares\FunctionCallback</a></td><td class="text-right">62%</td></tr>
+       <tr><td><a href="Http/Middlewares/MethodCallback.php.html#15">Atom\Framework\Http\Middlewares\MethodCallback</a></td><td class="text-right">70%</td></tr>
+       <tr><td><a href="Http/Middlewares/CallableMiddleware.php.html#11">Atom\Framework\Http\Middlewares\CallableMiddleware</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="FileSystem/Path.php.html#6">Atom\Framework\FileSystem\Path</a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#19">Atom\Framework\Http\Emitter\SapiStreamEmitter</a></td><td class="text-right">420</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#32">Atom\Framework\Http\Emitter\AbstractSapiEmitter</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#20">Atom\Framework\Http\Middlewares\DispatchRoutes</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#9">Atom\Framework\FileSystem\DiskManager</a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Http/Middlewares/DefinitionToResponseTrait.php.html#19">Atom\Framework\Http\Middlewares\DefinitionToResponseTrait</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="FileSystem/Path.php.html#6">Atom\Framework\FileSystem\Path</a></td><td class="text-right">9</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="ApplicationFactory.php.html#144"><abbr title="Atom\Framework\ApplicationFactory::providers">providers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/AppFailed.php.html#29"><abbr title="Atom\Framework\Events\AppFailed::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/AppFailed.php.html#39"><abbr title="Atom\Framework\Events\AppFailed::getException">getException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/AppFailed.php.html#47"><abbr title="Atom\Framework\Events\AppFailed::getHandler">getHandler</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/AppFailed.php.html#55"><abbr title="Atom\Framework\Events\AppFailed::getRequest">getRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/BootFailed.php.html#18"><abbr title="Atom\Framework\Events\BootFailed::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/BootFailed.php.html#27"><abbr title="Atom\Framework\Events\BootFailed::getKernel">getKernel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/BootFailed.php.html#35"><abbr title="Atom\Framework\Events\BootFailed::getException">getException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/MiddlewareLoaded.php.html#16"><abbr title="Atom\Framework\Events\MiddlewareLoaded::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/MiddlewareLoaded.php.html#21"><abbr title="Atom\Framework\Events\MiddlewareLoaded::getRelatedMiddleware">getRelatedMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/ServiceProviderRegistrationFailure.php.html#30"><abbr title="Atom\Framework\Events\ServiceProviderRegistrationFailure::getException">getException</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Events/ServiceProviderRegistrationFailure.php.html#38"><abbr title="Atom\Framework\Events\ServiceProviderRegistrationFailure::getContract">getContract</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Exceptions/InvalidRouteHandlerException.php.html#12"><abbr title="Atom\Framework\Exceptions\InvalidRouteHandlerException::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#15"><abbr title="Atom\Framework\FileSystem\DiskManager::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#27"><abbr title="Atom\Framework\FileSystem\DiskManager::add">add</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#37"><abbr title="Atom\Framework\FileSystem\DiskManager::get">get</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#45"><abbr title="Atom\Framework\FileSystem\DiskManager::has">has</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#54"><abbr title="Atom\Framework\FileSystem\DiskManager::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#67"><abbr title="Atom\Framework\FileSystem\DiskManager::disk">disk</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManagerProvider.php.html#17"><abbr title="Atom\Framework\FileSystem\DiskManagerProvider::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/DiskManagerProvider.php.html#26"><abbr title="Atom\Framework\FileSystem\DiskManagerProvider::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/InMemory.php.html#21"><abbr title="Atom\Framework\FileSystem\Disks\InMemory::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/InMemory.php.html#27"><abbr title="Atom\Framework\FileSystem\Disks\InMemory::getAdapter">getAdapter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/InMemory.php.html#32"><abbr title="Atom\Framework\FileSystem\Disks\InMemory::getLabel">getLabel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/InMemory.php.html#37"><abbr title="Atom\Framework\FileSystem\Disks\InMemory::getConfig">getConfig</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/Local.php.html#59"><abbr title="Atom\Framework\FileSystem\Disks\Local::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/Local.php.html#75"><abbr title="Atom\Framework\FileSystem\Disks\Local::getAdapter">getAdapter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/Local.php.html#85"><abbr title="Atom\Framework\FileSystem\Disks\Local::getLabel">getLabel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/Local.php.html#90"><abbr title="Atom\Framework\FileSystem\Disks\Local::getConfig">getConfig</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Disks/Local.php.html#99"><abbr title="Atom\Framework\FileSystem\Disks\Local::withConfig">withConfig</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/PathProvider.php.html#18"><abbr title="Atom\Framework\FileSystem\PathProvider::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/PathProvider.php.html#28"><abbr title="Atom\Framework\FileSystem\PathProvider::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#34"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::assertNoPreviousOutput">assertNoPreviousOutput</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#56"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::emitStatusLine">emitStatusLine</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#77"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::emitHeaders">emitHeaders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#108"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::toWordCase">toWordCase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#122"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeConnection">closeConnection</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#133"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeOutputBuffers">closeOutputBuffers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiEmitter.php.html#16"><abbr title="Atom\Framework\Http\Emitter\SapiEmitter::emit">emit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiEmitter.php.html#35"><abbr title="Atom\Framework\Http\Emitter\SapiEmitter::emitBody">emitBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#35"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::setMaxBufferLength">setMaxBufferLength</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#45"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emit">emit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#71"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBody">emitBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#101"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBodyRange">emitBodyRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#147"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::parseContentRange">parseContentRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/AbstractMiddleware.php.html#18"><abbr title="Atom\Framework\Http\Middlewares\AbstractMiddleware::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/CallableMiddleware.php.html#33"><abbr title="Atom\Framework\Http\Middlewares\CallableMiddleware::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#31"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#48"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#82"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::asMiddleware">asMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/FunctionCallback.php.html#57"><abbr title="Atom\Framework\Http\Middlewares\FunctionCallback::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/FunctionCallback.php.html#74"><abbr title="Atom\Framework\Http\Middlewares\FunctionCallback::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/MethodCallback.php.html#54"><abbr title="Atom\Framework\Http\Middlewares\MethodCallback::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/MethodCallback.php.html#72"><abbr title="Atom\Framework\Http\Middlewares\MethodCallback::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/Pipeline.php.html#18"><abbr title="Atom\Framework\Http\Middlewares\Pipeline::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/Pipeline.php.html#29"><abbr title="Atom\Framework\Http\Middlewares\Pipeline::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/Pipeline.php.html#36"><abbr title="Atom\Framework\Http\Middlewares\Pipeline::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pipeline/NullProcessor.php.html#11"><abbr title="Atom\Framework\Pipeline\NullProcessor::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Pipeline/NullProcessor.php.html#16"><abbr title="Atom\Framework\Pipeline\NullProcessor::shouldStop">shouldStop</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rendering/RoutingExtensionProvider.php.html#16"><abbr title="Atom\Framework\Rendering\RoutingExtensionProvider::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Rendering/RoutingExtensionProvider.php.html#21"><abbr title="Atom\Framework\Rendering\RoutingExtensionProvider::getExtensions">getExtensions</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middlewares/DefinitionToResponseTrait.php.html#33"><abbr title="Atom\Framework\Http\Middlewares\DefinitionToResponseTrait::definitionToResponse">definitionToResponse</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="FileSystem/Path.php.html#35"><abbr title="Atom\Framework\FileSystem\Path::app">app</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="FileSystem/Path.php.html#57"><abbr title="Atom\Framework\FileSystem\Path::public">public</abbr></a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#101"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBodyRange">emitBodyRange</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#82"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::asMiddleware">asMiddleware</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#133"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeOutputBuffers">closeOutputBuffers</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Http/Middlewares/DefinitionToResponseTrait.php.html#33"><abbr title="Atom\Framework\Http\Middlewares\DefinitionToResponseTrait::definitionToResponse">definitionToResponse</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#71"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBody">emitBody</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#34"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::assertNoPreviousOutput">assertNoPreviousOutput</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Middlewares/DispatchRoutes.php.html#48"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::run">run</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#77"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::emitHeaders">emitHeaders</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Emitter/AbstractSapiEmitter.php.html#122"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeConnection">closeConnection</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#45"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emit">emit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Emitter/SapiStreamEmitter.php.html#147"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::parseContentRange">parseContentRange</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#15"><abbr title="Atom\Framework\FileSystem\DiskManager::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#37"><abbr title="Atom\Framework\FileSystem\DiskManager::get">get</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="FileSystem/DiskManager.php.html#54"><abbr title="Atom\Framework\FileSystem\DiskManager::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="FileSystem/Path.php.html#35"><abbr title="Atom\Framework\FileSystem\Path::app">app</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="FileSystem/Path.php.html#57"><abbr title="Atom\Framework\FileSystem\Path::public">public</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.6</a> using <a href="https://secure.php.net/" target="_top">PHP 8.0.8</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 9.5.4</a> at Fri Jul 30 14:30:31 UTC 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js" type="text/javascript"></script>
+  <script src="_js/d3.min.js" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([18,0,0,0,0,0,0,2,1,2,3,21], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([62,0,0,0,0,0,0,2,0,0,2,193], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,34,"<a href=\"Application.php.html#29\">Atom\\Framework\\Application<\/a>"],[93.75,16,"<a href=\"ApplicationFactory.php.html#20\">Atom\\Framework\\ApplicationFactory<\/a>"],[100,3,"<a href=\"CallableServiceProvider.php.html#6\">Atom\\Framework\\CallableServiceProvider<\/a>"],[98.18181818181819,30,"<a href=\"Env.php.html#12\">Atom\\Framework\\Env<\/a>"],[0,4,"<a href=\"Events\/AppFailed.php.html#13\">Atom\\Framework\\Events\\AppFailed<\/a>"],[0,3,"<a href=\"Events\/BootFailed.php.html#10\">Atom\\Framework\\Events\\BootFailed<\/a>"],[0,2,"<a href=\"Events\/MiddlewareLoaded.php.html#9\">Atom\\Framework\\Events\\MiddlewareLoaded<\/a>"],[100,1,"<a href=\"Events\/ServiceProviderRegistered.php.html#8\">Atom\\Framework\\Events\\ServiceProviderRegistered<\/a>"],[60,3,"<a href=\"Events\/ServiceProviderRegistrationFailure.php.html#10\">Atom\\Framework\\Events\\ServiceProviderRegistrationFailure<\/a>"],[100,0,"<a href=\"Exceptions\/AppAlreadyBootedException.php.html#8\">Atom\\Framework\\Exceptions\\AppAlreadyBootedException<\/a>"],[0,1,"<a href=\"Exceptions\/InvalidRouteHandlerException.php.html#10\">Atom\\Framework\\Exceptions\\InvalidRouteHandlerException<\/a>"],[100,0,"<a href=\"Exceptions\/RequestHandlerException.php.html#4\">Atom\\Framework\\Exceptions\\RequestHandlerException<\/a>"],[0,9,"<a href=\"FileSystem\/DiskManager.php.html#9\">Atom\\Framework\\FileSystem\\DiskManager<\/a>"],[100,0,"<a href=\"FileSystem\/DiskManagerException.php.html#6\">Atom\\Framework\\FileSystem\\DiskManagerException<\/a>"],[0,2,"<a href=\"FileSystem\/DiskManagerProvider.php.html#10\">Atom\\Framework\\FileSystem\\DiskManagerProvider<\/a>"],[100,0,"<a href=\"FileSystem\/DiskNotFoundException.php.html#6\">Atom\\Framework\\FileSystem\\DiskNotFoundException<\/a>"],[0,4,"<a href=\"FileSystem\/Disks\/InMemory.php.html#10\">Atom\\Framework\\FileSystem\\Disks\\InMemory<\/a>"],[0,5,"<a href=\"FileSystem\/Disks\/Local.php.html#12\">Atom\\Framework\\FileSystem\\Disks\\Local<\/a>"],[85.71428571428571,9,"<a href=\"FileSystem\/Path.php.html#6\">Atom\\Framework\\FileSystem\\Path<\/a>"],[0,2,"<a href=\"FileSystem\/PathProvider.php.html#10\">Atom\\Framework\\FileSystem\\PathProvider<\/a>"],[0,19,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#32\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter<\/a>"],[100,1,"<a href=\"Http\/Emitter\/NoneEmitter.php.html#9\">Atom\\Framework\\Http\\Emitter\\NoneEmitter<\/a>"],[0,2,"<a href=\"Http\/Emitter\/SapiEmitter.php.html#11\">Atom\\Framework\\Http\\Emitter\\SapiEmitter<\/a>"],[0,20,"<a href=\"Http\/Emitter\/SapiStreamEmitter.php.html#19\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter<\/a>"],[100,4,"<a href=\"Http\/JsonStringResponse.php.html#10\">Atom\\Framework\\Http\\JsonStringResponse<\/a>"],[100,14,"<a href=\"Http\/MiddlewareProcessor.php.html#17\">Atom\\Framework\\Http\\MiddlewareProcessor<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/AbstractMiddleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\AbstractMiddleware<\/a>"],[80,3,"<a href=\"Http\/Middlewares\/CallableMiddleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware<\/a>"],[0,13,"<a href=\"Http\/Middlewares\/DispatchRoutes.php.html#20\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes<\/a>"],[62.5,4,"<a href=\"Http\/Middlewares\/FunctionCallback.php.html#15\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback<\/a>"],[70,5,"<a href=\"Http\/Middlewares\/MethodCallback.php.html#15\">Atom\\Framework\\Http\\Middlewares\\MethodCallback<\/a>"],[100,2,"<a href=\"Http\/Middlewares\/Middleware.php.html#9\">Atom\\Framework\\Http\\Middlewares\\Middleware<\/a>"],[0,3,"<a href=\"Http\/Middlewares\/Pipeline.php.html#10\">Atom\\Framework\\Http\\Middlewares\\Pipeline<\/a>"],[100,2,"<a href=\"Http\/Middlewares\/ResponseMiddleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\ResponseMiddleware<\/a>"],[100,33,"<a href=\"Http\/Request.php.html#13\">Atom\\Framework\\Http\\Request<\/a>"],[100,17,"<a href=\"Http\/RequestHandler.php.html#25\">Atom\\Framework\\Http\\RequestHandler<\/a>"],[100,7,"<a href=\"Http\/Response.php.html#17\">Atom\\Framework\\Http\\Response<\/a>"],[100,12,"<a href=\"Http\/ResponseSender.php.html#11\">Atom\\Framework\\Http\\ResponseSender<\/a>"],[100,25,"<a href=\"Kernel.php.html#23\">Atom\\Framework\\Kernel<\/a>"],[0,2,"<a href=\"Pipeline\/NullProcessor.php.html#8\">Atom\\Framework\\Pipeline\\NullProcessor<\/a>"],[100,19,"<a href=\"Pipeline\/Pipeline.php.html#9\">Atom\\Framework\\Pipeline\\Pipeline<\/a>"],[100,14,"<a href=\"Pipeline\/PipelineFactory.php.html#9\">Atom\\Framework\\Pipeline\\PipelineFactory<\/a>"],[0,2,"<a href=\"Rendering\/RoutingExtensionProvider.php.html#9\">Atom\\Framework\\Rendering\\RoutingExtensionProvider<\/a>"],[100,1,"<a href=\"ServiceProvider.php.html#8\">Atom\\Framework\\ServiceProvider<\/a>"],[98.63013698630137,29,"<a href=\"WebServiceProvider.php.html#26\">Atom\\Framework\\WebServiceProvider<\/a>"],[100,1,"<a href=\"Http\/ConvertMimeTypeToFormat.php.html#6\">Atom\\Framework\\Http\\ConvertMimeTypeToFormat<\/a>"],[0,6,"<a href=\"Http\/Middlewares\/DefinitionToResponseTrait.php.html#19\">Atom\\Framework\\Http\\Middlewares\\DefinitionToResponseTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,3,"<a href=\"Application.php.html#59\">Atom\\Framework\\Application::__construct<\/a>"],[100,1,"<a href=\"Application.php.html#82\">Atom\\Framework\\Application::create<\/a>"],[100,1,"<a href=\"Application.php.html#93\">Atom\\Framework\\Application::with<\/a>"],[100,1,"<a href=\"Application.php.html#104\">Atom\\Framework\\Application::of<\/a>"],[100,1,"<a href=\"Application.php.html#115\">Atom\\Framework\\Application::prod<\/a>"],[100,1,"<a href=\"Application.php.html#126\">Atom\\Framework\\Application::dev<\/a>"],[100,1,"<a href=\"Application.php.html#137\">Atom\\Framework\\Application::test<\/a>"],[100,1,"<a href=\"Application.php.html#148\">Atom\\Framework\\Application::staging<\/a>"],[100,1,"<a href=\"Application.php.html#160\">Atom\\Framework\\Application::run<\/a>"],[100,1,"<a href=\"Application.php.html#173\">Atom\\Framework\\Application::withRouting<\/a>"],[100,1,"<a href=\"Application.php.html#188\">Atom\\Framework\\Application::handle<\/a>"],[100,1,"<a href=\"Application.php.html#201\">Atom\\Framework\\Application::emit<\/a>"],[100,1,"<a href=\"Application.php.html#206\">Atom\\Framework\\Application::container<\/a>"],[100,1,"<a href=\"Application.php.html#211\">Atom\\Framework\\Application::eventDispatcher<\/a>"],[100,2,"<a href=\"Application.php.html#223\">Atom\\Framework\\Application::requestHandler<\/a>"],[100,1,"<a href=\"Application.php.html#238\">Atom\\Framework\\Application::emitter<\/a>"],[100,2,"<a href=\"Application.php.html#250\">Atom\\Framework\\Application::path<\/a>"],[100,2,"<a href=\"Application.php.html#265\">Atom\\Framework\\Application::router<\/a>"],[100,1,"<a href=\"Application.php.html#284\">Atom\\Framework\\Application::group<\/a>"],[100,1,"<a href=\"Application.php.html#299\">Atom\\Framework\\Application::add<\/a>"],[100,1,"<a href=\"Application.php.html#314\">Atom\\Framework\\Application::middlewares<\/a>"],[100,1,"<a href=\"Application.php.html#324\">Atom\\Framework\\Application::kernel<\/a>"],[100,1,"<a href=\"Application.php.html#332\">Atom\\Framework\\Application::getRegisteredProviders<\/a>"],[100,1,"<a href=\"Application.php.html#344\">Atom\\Framework\\Application::registerRoute<\/a>"],[100,1,"<a href=\"Application.php.html#349\">Atom\\Framework\\Application::env<\/a>"],[100,1,"<a href=\"Application.php.html#360\">Atom\\Framework\\Application::use<\/a>"],[100,1,"<a href=\"Application.php.html#372\">Atom\\Framework\\Application::providers<\/a>"],[100,1,"<a href=\"Application.php.html#385\">Atom\\Framework\\Application::respond<\/a>"],[100,1,"<a href=\"Application.php.html#390\">Atom\\Framework\\Application::getKernel<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#34\">Atom\\Framework\\ApplicationFactory::with<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#39\">Atom\\Framework\\ApplicationFactory::new<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#51\">Atom\\Framework\\ApplicationFactory::create<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#65\">Atom\\Framework\\ApplicationFactory::container<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#75\">Atom\\Framework\\ApplicationFactory::eventDispatcher<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#85\">Atom\\Framework\\ApplicationFactory::router<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#95\">Atom\\Framework\\ApplicationFactory::requestHandler<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#105\">Atom\\Framework\\ApplicationFactory::emitter<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#115\">Atom\\Framework\\ApplicationFactory::kernel<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#125\">Atom\\Framework\\ApplicationFactory::in<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#135\">Atom\\Framework\\ApplicationFactory::env<\/a>"],[0,1,"<a href=\"ApplicationFactory.php.html#144\">Atom\\Framework\\ApplicationFactory::providers<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#150\">Atom\\Framework\\ApplicationFactory::getEnv<\/a>"],[100,2,"<a href=\"ApplicationFactory.php.html#161\">Atom\\Framework\\ApplicationFactory::makeKernel<\/a>"],[100,1,"<a href=\"ApplicationFactory.php.html#169\">Atom\\Framework\\ApplicationFactory::makeServiceProvider<\/a>"],[100,1,"<a href=\"CallableServiceProvider.php.html#13\">Atom\\Framework\\CallableServiceProvider::__construct<\/a>"],[100,1,"<a href=\"CallableServiceProvider.php.html#18\">Atom\\Framework\\CallableServiceProvider::register<\/a>"],[100,1,"<a href=\"CallableServiceProvider.php.html#27\">Atom\\Framework\\CallableServiceProvider::getCallable<\/a>"],[100,1,"<a href=\"Env.php.html#42\">Atom\\Framework\\Env::default<\/a>"],[100,1,"<a href=\"Env.php.html#48\">Atom\\Framework\\Env::getDefaultEnv<\/a>"],[100,2,"<a href=\"Env.php.html#53\">Atom\\Framework\\Env::addAllowedEnv<\/a>"],[100,1,"<a href=\"Env.php.html#60\">Atom\\Framework\\Env::create<\/a>"],[100,1,"<a href=\"Env.php.html#65\">Atom\\Framework\\Env::__construct<\/a>"],[100,1,"<a href=\"Env.php.html#77\">Atom\\Framework\\Env::is<\/a>"],[100,1,"<a href=\"Env.php.html#85\">Atom\\Framework\\Env::isProduction<\/a>"],[100,1,"<a href=\"Env.php.html#93\">Atom\\Framework\\Env::isTesting<\/a>"],[100,1,"<a href=\"Env.php.html#101\">Atom\\Framework\\Env::isDev<\/a>"],[100,1,"<a href=\"Env.php.html#109\">Atom\\Framework\\Env::isStaging<\/a>"],[100,2,"<a href=\"Env.php.html#117\">Atom\\Framework\\Env::dotEnv<\/a>"],[95.45454545454545,11,"<a href=\"Env.php.html#133\">Atom\\Framework\\Env::get<\/a>"],[100,1,"<a href=\"Env.php.html#165\">Atom\\Framework\\Env::has<\/a>"],[100,1,"<a href=\"Env.php.html#171\">Atom\\Framework\\Env::__toString<\/a>"],[100,2,"<a href=\"Env.php.html#179\">Atom\\Framework\\Env::getRepository<\/a>"],[100,2,"<a href=\"Env.php.html#191\">Atom\\Framework\\Env::validateEnv<\/a>"],[0,1,"<a href=\"Events\/AppFailed.php.html#29\">Atom\\Framework\\Events\\AppFailed::__construct<\/a>"],[0,1,"<a href=\"Events\/AppFailed.php.html#39\">Atom\\Framework\\Events\\AppFailed::getException<\/a>"],[0,1,"<a href=\"Events\/AppFailed.php.html#47\">Atom\\Framework\\Events\\AppFailed::getHandler<\/a>"],[0,1,"<a href=\"Events\/AppFailed.php.html#55\">Atom\\Framework\\Events\\AppFailed::getRequest<\/a>"],[0,1,"<a href=\"Events\/BootFailed.php.html#18\">Atom\\Framework\\Events\\BootFailed::__construct<\/a>"],[0,1,"<a href=\"Events\/BootFailed.php.html#27\">Atom\\Framework\\Events\\BootFailed::getKernel<\/a>"],[0,1,"<a href=\"Events\/BootFailed.php.html#35\">Atom\\Framework\\Events\\BootFailed::getException<\/a>"],[0,1,"<a href=\"Events\/MiddlewareLoaded.php.html#16\">Atom\\Framework\\Events\\MiddlewareLoaded::__construct<\/a>"],[0,1,"<a href=\"Events\/MiddlewareLoaded.php.html#21\">Atom\\Framework\\Events\\MiddlewareLoaded::getRelatedMiddleware<\/a>"],[100,1,"<a href=\"Events\/ServiceProviderRegistered.php.html#15\">Atom\\Framework\\Events\\ServiceProviderRegistered::__construct<\/a>"],[100,1,"<a href=\"Events\/ServiceProviderRegistrationFailure.php.html#21\">Atom\\Framework\\Events\\ServiceProviderRegistrationFailure::__construct<\/a>"],[0,1,"<a href=\"Events\/ServiceProviderRegistrationFailure.php.html#30\">Atom\\Framework\\Events\\ServiceProviderRegistrationFailure::getException<\/a>"],[0,1,"<a href=\"Events\/ServiceProviderRegistrationFailure.php.html#38\">Atom\\Framework\\Events\\ServiceProviderRegistrationFailure::getContract<\/a>"],[0,1,"<a href=\"Exceptions\/InvalidRouteHandlerException.php.html#12\">Atom\\Framework\\Exceptions\\InvalidRouteHandlerException::__construct<\/a>"],[0,2,"<a href=\"FileSystem\/DiskManager.php.html#15\">Atom\\Framework\\FileSystem\\DiskManager::__construct<\/a>"],[0,1,"<a href=\"FileSystem\/DiskManager.php.html#27\">Atom\\Framework\\FileSystem\\DiskManager::add<\/a>"],[0,2,"<a href=\"FileSystem\/DiskManager.php.html#37\">Atom\\Framework\\FileSystem\\DiskManager::get<\/a>"],[0,1,"<a href=\"FileSystem\/DiskManager.php.html#45\">Atom\\Framework\\FileSystem\\DiskManager::has<\/a>"],[0,2,"<a href=\"FileSystem\/DiskManager.php.html#54\">Atom\\Framework\\FileSystem\\DiskManager::remove<\/a>"],[0,1,"<a href=\"FileSystem\/DiskManager.php.html#67\">Atom\\Framework\\FileSystem\\DiskManager::disk<\/a>"],[0,1,"<a href=\"FileSystem\/DiskManagerProvider.php.html#17\">Atom\\Framework\\FileSystem\\DiskManagerProvider::__construct<\/a>"],[0,1,"<a href=\"FileSystem\/DiskManagerProvider.php.html#26\">Atom\\Framework\\FileSystem\\DiskManagerProvider::register<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/InMemory.php.html#21\">Atom\\Framework\\FileSystem\\Disks\\InMemory::__construct<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/InMemory.php.html#27\">Atom\\Framework\\FileSystem\\Disks\\InMemory::getAdapter<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/InMemory.php.html#32\">Atom\\Framework\\FileSystem\\Disks\\InMemory::getLabel<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/InMemory.php.html#37\">Atom\\Framework\\FileSystem\\Disks\\InMemory::getConfig<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/Local.php.html#59\">Atom\\Framework\\FileSystem\\Disks\\Local::__construct<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/Local.php.html#75\">Atom\\Framework\\FileSystem\\Disks\\Local::getAdapter<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/Local.php.html#85\">Atom\\Framework\\FileSystem\\Disks\\Local::getLabel<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/Local.php.html#90\">Atom\\Framework\\FileSystem\\Disks\\Local::getConfig<\/a>"],[0,1,"<a href=\"FileSystem\/Disks\/Local.php.html#99\">Atom\\Framework\\FileSystem\\Disks\\Local::withConfig<\/a>"],[100,2,"<a href=\"FileSystem\/Path.php.html#17\">Atom\\Framework\\FileSystem\\Path::__construct<\/a>"],[100,1,"<a href=\"FileSystem\/Path.php.html#26\">Atom\\Framework\\FileSystem\\Path::join<\/a>"],[66.66666666666666,2,"<a href=\"FileSystem\/Path.php.html#35\">Atom\\Framework\\FileSystem\\Path::app<\/a>"],[100,1,"<a href=\"FileSystem\/Path.php.html#43\">Atom\\Framework\\FileSystem\\Path::removeTrailingSlash<\/a>"],[100,1,"<a href=\"FileSystem\/Path.php.html#48\">Atom\\Framework\\FileSystem\\Path::__toString<\/a>"],[66.66666666666666,2,"<a href=\"FileSystem\/Path.php.html#57\">Atom\\Framework\\FileSystem\\Path::public<\/a>"],[0,1,"<a href=\"FileSystem\/PathProvider.php.html#18\">Atom\\Framework\\FileSystem\\PathProvider::__construct<\/a>"],[0,1,"<a href=\"FileSystem\/PathProvider.php.html#28\">Atom\\Framework\\FileSystem\\PathProvider::register<\/a>"],[0,4,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#34\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::assertNoPreviousOutput<\/a>"],[0,1,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#56\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::emitStatusLine<\/a>"],[0,3,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#77\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::emitHeaders<\/a>"],[0,1,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#108\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::toWordCase<\/a>"],[0,3,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#122\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::closeConnection<\/a>"],[0,7,"<a href=\"Http\/Emitter\/AbstractSapiEmitter.php.html#133\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::closeOutputBuffers<\/a>"],[100,1,"<a href=\"Http\/Emitter\/NoneEmitter.php.html#12\">Atom\\Framework\\Http\\Emitter\\NoneEmitter::emit<\/a>"],[0,1,"<a href=\"Http\/Emitter\/SapiEmitter.php.html#16\">Atom\\Framework\\Http\\Emitter\\SapiEmitter::emit<\/a>"],[0,1,"<a href=\"Http\/Emitter\/SapiEmitter.php.html#35\">Atom\\Framework\\Http\\Emitter\\SapiEmitter::emitBody<\/a>"],[0,1,"<a href=\"Http\/Emitter\/SapiStreamEmitter.php.html#35\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::setMaxBufferLength<\/a>"],[0,3,"<a href=\"Http\/Emitter\/SapiStreamEmitter.php.html#45\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::emit<\/a>"],[0,5,"<a href=\"Http\/Emitter\/SapiStreamEmitter.php.html#71\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::emitBody<\/a>"],[0,8,"<a href=\"Http\/Emitter\/SapiStreamEmitter.php.html#101\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::emitBodyRange<\/a>"],[0,3,"<a href=\"Http\/Emitter\/SapiStreamEmitter.php.html#147\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::parseContentRange<\/a>"],[100,1,"<a href=\"Http\/JsonStringResponse.php.html#24\">Atom\\Framework\\Http\\JsonStringResponse::__construct<\/a>"],[100,1,"<a href=\"Http\/JsonStringResponse.php.html#38\">Atom\\Framework\\Http\\JsonStringResponse::getPayload<\/a>"],[100,1,"<a href=\"Http\/JsonStringResponse.php.html#43\">Atom\\Framework\\Http\\JsonStringResponse::createBodyFromJson<\/a>"],[100,1,"<a href=\"Http\/JsonStringResponse.php.html#55\">Atom\\Framework\\Http\\JsonStringResponse::setPayload<\/a>"],[100,1,"<a href=\"Http\/MiddlewareProcessor.php.html#25\">Atom\\Framework\\Http\\MiddlewareProcessor::__construct<\/a>"],[100,2,"<a href=\"Http\/MiddlewareProcessor.php.html#40\">Atom\\Framework\\Http\\MiddlewareProcessor::process<\/a>"],[100,10,"<a href=\"Http\/MiddlewareProcessor.php.html#54\">Atom\\Framework\\Http\\MiddlewareProcessor::getMiddleware<\/a>"],[100,1,"<a href=\"Http\/MiddlewareProcessor.php.html#77\">Atom\\Framework\\Http\\MiddlewareProcessor::shouldStop<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/AbstractMiddleware.php.html#18\">Atom\\Framework\\Http\\Middlewares\\AbstractMiddleware::process<\/a>"],[100,0,"<a href=\"Http\/Middlewares\/AbstractMiddleware.php.html#23\">Atom\\Framework\\Http\\Middlewares\\AbstractMiddleware::run<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/CallableMiddleware.php.html#19\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware::__construct<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/CallableMiddleware.php.html#25\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware::process<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/CallableMiddleware.php.html#33\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware::getName<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/DispatchRoutes.php.html#31\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes::__construct<\/a>"],[0,4,"<a href=\"Http\/Middlewares\/DispatchRoutes.php.html#48\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes::run<\/a>"],[0,8,"<a href=\"Http\/Middlewares\/DispatchRoutes.php.html#82\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes::asMiddleware<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/FunctionCallback.php.html#40\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::__construct<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/FunctionCallback.php.html#57\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::run<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/FunctionCallback.php.html#74\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::call<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/FunctionCallback.php.html#88\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::getCallback<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/MethodCallback.php.html#36\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::__construct<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/MethodCallback.php.html#54\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::run<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/MethodCallback.php.html#72\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::call<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/MethodCallback.php.html#87\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::getObject<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/MethodCallback.php.html#95\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::getMethod<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/Middleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\Middleware::function<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/Middleware.php.html#16\">Atom\\Framework\\Http\\Middlewares\\Middleware::response<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/Pipeline.php.html#18\">Atom\\Framework\\Http\\Middlewares\\Pipeline::__construct<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/Pipeline.php.html#29\">Atom\\Framework\\Http\\Middlewares\\Pipeline::run<\/a>"],[0,1,"<a href=\"Http\/Middlewares\/Pipeline.php.html#36\">Atom\\Framework\\Http\\Middlewares\\Pipeline::create<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/ResponseMiddleware.php.html#18\">Atom\\Framework\\Http\\Middlewares\\ResponseMiddleware::__construct<\/a>"],[100,1,"<a href=\"Http\/Middlewares\/ResponseMiddleware.php.html#23\">Atom\\Framework\\Http\\Middlewares\\ResponseMiddleware::process<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#22\">Atom\\Framework\\Http\\Request::incoming<\/a>"],[100,2,"<a href=\"Http\/Request.php.html#27\">Atom\\Framework\\Http\\Request::from<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#47\">Atom\\Framework\\Http\\Request::route<\/a>"],[100,2,"<a href=\"Http\/Request.php.html#52\">Atom\\Framework\\Http\\Request::isJson<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#58\">Atom\\Framework\\Http\\Request::isMethod<\/a>"],[100,4,"<a href=\"Http\/Request.php.html#68\">Atom\\Framework\\Http\\Request::expectsJson<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#76\">Atom\\Framework\\Http\\Request::isAjax<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#84\">Atom\\Framework\\Http\\Request::isPjax<\/a>"],[100,5,"<a href=\"Http\/Request.php.html#93\">Atom\\Framework\\Http\\Request::wantsJson<\/a>"],[100,6,"<a href=\"Http\/Request.php.html#112\">Atom\\Framework\\Http\\Request::accepts<\/a>"],[100,4,"<a href=\"Http\/Request.php.html#135\">Atom\\Framework\\Http\\Request::acceptsAnyContentType<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#149\">Atom\\Framework\\Http\\Request::acceptsJson<\/a>"],[100,1,"<a href=\"Http\/Request.php.html#159\">Atom\\Framework\\Http\\Request::acceptsHtml<\/a>"],[100,3,"<a href=\"Http\/Request.php.html#167\">Atom\\Framework\\Http\\Request::getAcceptableContentTypes<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#41\">Atom\\Framework\\Http\\RequestHandler::__construct<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#55\">Atom\\Framework\\Http\\RequestHandler::getKernel<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#63\">Atom\\Framework\\Http\\RequestHandler::container<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#75\">Atom\\Framework\\Http\\RequestHandler::router<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#87\">Atom\\Framework\\Http\\RequestHandler::run<\/a>"],[100,2,"<a href=\"Http\/RequestHandler.php.html#98\">Atom\\Framework\\Http\\RequestHandler::handle<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#109\">Atom\\Framework\\Http\\RequestHandler::add<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#115\">Atom\\Framework\\Http\\RequestHandler::middlewares<\/a>"],[100,2,"<a href=\"Http\/RequestHandler.php.html#126\">Atom\\Framework\\Http\\RequestHandler::ensureStarted<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#148\">Atom\\Framework\\Http\\RequestHandler::emit<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#164\">Atom\\Framework\\Http\\RequestHandler::emitter<\/a>"],[100,2,"<a href=\"Http\/RequestHandler.php.html#173\">Atom\\Framework\\Http\\RequestHandler::withNext<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#183\">Atom\\Framework\\Http\\RequestHandler::getFactoryPipes<\/a>"],[100,1,"<a href=\"Http\/RequestHandler.php.html#192\">Atom\\Framework\\Http\\RequestHandler::setPipeline<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#19\">Atom\\Framework\\Http\\Response::json<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#28\">Atom\\Framework\\Http\\Response::jsonString<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#36\">Atom\\Framework\\Http\\Response::html<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#44\">Atom\\Framework\\Http\\Response::text<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#52\">Atom\\Framework\\Http\\Response::empty<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#59\">Atom\\Framework\\Http\\Response::redirect<\/a>"],[100,1,"<a href=\"Http\/Response.php.html#82\">Atom\\Framework\\Http\\Response::redirectRoute<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#18\">Atom\\Framework\\Http\\ResponseSender::__construct<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#23\">Atom\\Framework\\Http\\ResponseSender::json<\/a>"],[100,4,"<a href=\"Http\/ResponseSender.php.html#32\">Atom\\Framework\\Http\\ResponseSender::send<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#46\">Atom\\Framework\\Http\\ResponseSender::jsonString<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#54\">Atom\\Framework\\Http\\ResponseSender::html<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#62\">Atom\\Framework\\Http\\ResponseSender::text<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#70\">Atom\\Framework\\Http\\ResponseSender::empty<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#77\">Atom\\Framework\\Http\\ResponseSender::redirect<\/a>"],[100,1,"<a href=\"Http\/ResponseSender.php.html#92\">Atom\\Framework\\Http\\ResponseSender::redirectRoute<\/a>"],[100,1,"<a href=\"Kernel.php.html#58\">Atom\\Framework\\Kernel::__construct<\/a>"],[100,1,"<a href=\"Kernel.php.html#74\">Atom\\Framework\\Kernel::env<\/a>"],[100,1,"<a href=\"Kernel.php.html#87\">Atom\\Framework\\Kernel::get<\/a>"],[100,1,"<a href=\"Kernel.php.html#95\">Atom\\Framework\\Kernel::appPath<\/a>"],[100,1,"<a href=\"Kernel.php.html#103\">Atom\\Framework\\Kernel::container<\/a>"],[100,1,"<a href=\"Kernel.php.html#111\">Atom\\Framework\\Kernel::eventDispatcher<\/a>"],[100,3,"<a href=\"Kernel.php.html#122\">Atom\\Framework\\Kernel::use<\/a>"],[100,1,"<a href=\"Kernel.php.html#144\">Atom\\Framework\\Kernel::providerRegistered<\/a>"],[100,2,"<a href=\"Kernel.php.html#155\">Atom\\Framework\\Kernel::providers<\/a>"],[100,1,"<a href=\"Kernel.php.html#166\">Atom\\Framework\\Kernel::boot<\/a>"],[100,1,"<a href=\"Kernel.php.html#176\">Atom\\Framework\\Kernel::hasBooted<\/a>"],[100,1,"<a href=\"Kernel.php.html#187\">Atom\\Framework\\Kernel::setMetaData<\/a>"],[100,1,"<a href=\"Kernel.php.html#198\">Atom\\Framework\\Kernel::hasMetaData<\/a>"],[100,1,"<a href=\"Kernel.php.html#208\">Atom\\Framework\\Kernel::getMetaData<\/a>"],[100,1,"<a href=\"Kernel.php.html#213\">Atom\\Framework\\Kernel::getKernel<\/a>"],[100,1,"<a href=\"Kernel.php.html#221\">Atom\\Framework\\Kernel::getRegisteredProviders<\/a>"],[100,2,"<a href=\"Kernel.php.html#230\">Atom\\Framework\\Kernel::ensureNotBooted<\/a>"],[100,1,"<a href=\"Kernel.php.html#241\">Atom\\Framework\\Kernel::providesUtils<\/a>"],[100,1,"<a href=\"Kernel.php.html#251\">Atom\\Framework\\Kernel::provideContainer<\/a>"],[100,1,"<a href=\"Kernel.php.html#262\">Atom\\Framework\\Kernel::provideEventDispatcher<\/a>"],[100,1,"<a href=\"Kernel.php.html#274\">Atom\\Framework\\Kernel::provideEnv<\/a>"],[0,1,"<a href=\"Pipeline\/NullProcessor.php.html#11\">Atom\\Framework\\Pipeline\\NullProcessor::process<\/a>"],[0,1,"<a href=\"Pipeline\/NullProcessor.php.html#16\">Atom\\Framework\\Pipeline\\NullProcessor::shouldStop<\/a>"],[100,2,"<a href=\"Pipeline\/Pipeline.php.html#24\">Atom\\Framework\\Pipeline\\Pipeline::__construct<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#43\">Atom\\Framework\\Pipeline\\Pipeline::length<\/a>"],[100,4,"<a href=\"Pipeline\/Pipeline.php.html#51\">Atom\\Framework\\Pipeline\\Pipeline::next<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#69\">Atom\\Framework\\Pipeline\\Pipeline::current<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#74\">Atom\\Framework\\Pipeline\\Pipeline::completed<\/a>"],[100,2,"<a href=\"Pipeline\/Pipeline.php.html#79\">Atom\\Framework\\Pipeline\\Pipeline::run<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#87\">Atom\\Framework\\Pipeline\\Pipeline::getPipe<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#92\">Atom\\Framework\\Pipeline\\Pipeline::send<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#97\">Atom\\Framework\\Pipeline\\Pipeline::with<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#111\">Atom\\Framework\\Pipeline\\Pipeline::getPipes<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#119\">Atom\\Framework\\Pipeline\\Pipeline::getProcessor<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#124\">Atom\\Framework\\Pipeline\\Pipeline::withAddedPipes<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#141\">Atom\\Framework\\Pipeline\\Pipeline::getNextIndex<\/a>"],[100,1,"<a href=\"Pipeline\/Pipeline.php.html#149\">Atom\\Framework\\Pipeline\\Pipeline::getCurrentIndex<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#23\">Atom\\Framework\\Pipeline\\PipelineFactory::pipe<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#33\">Atom\\Framework\\Pipeline\\PipelineFactory::through<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#39\">Atom\\Framework\\Pipeline\\PipelineFactory::add<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#45\">Atom\\Framework\\Pipeline\\PipelineFactory::addPipes<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#51\">Atom\\Framework\\Pipeline\\PipelineFactory::via<\/a>"],[100,5,"<a href=\"Pipeline\/PipelineFactory.php.html#59\">Atom\\Framework\\Pipeline\\PipelineFactory::make<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#73\">Atom\\Framework\\Pipeline\\PipelineFactory::run<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#81\">Atom\\Framework\\Pipeline\\PipelineFactory::getData<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#89\">Atom\\Framework\\Pipeline\\PipelineFactory::getPipes<\/a>"],[100,1,"<a href=\"Pipeline\/PipelineFactory.php.html#97\">Atom\\Framework\\Pipeline\\PipelineFactory::getProcessor<\/a>"],[0,1,"<a href=\"Rendering\/RoutingExtensionProvider.php.html#16\">Atom\\Framework\\Rendering\\RoutingExtensionProvider::__construct<\/a>"],[0,1,"<a href=\"Rendering\/RoutingExtensionProvider.php.html#21\">Atom\\Framework\\Rendering\\RoutingExtensionProvider::getExtensions<\/a>"],[100,1,"<a href=\"ServiceProvider.php.html#10\">Atom\\Framework\\ServiceProvider::fromCallable<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#50\">Atom\\Framework\\WebServiceProvider::create<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#63\">Atom\\Framework\\WebServiceProvider::register<\/a>"],[100,4,"<a href=\"WebServiceProvider.php.html#80\">Atom\\Framework\\WebServiceProvider::requestHandler<\/a>"],[100,4,"<a href=\"WebServiceProvider.php.html#99\">Atom\\Framework\\WebServiceProvider::emitter<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#118\">Atom\\Framework\\WebServiceProvider::publicPath<\/a>"],[100,4,"<a href=\"WebServiceProvider.php.html#129\">Atom\\Framework\\WebServiceProvider::router<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#148\">Atom\\Framework\\WebServiceProvider::provideDotEnv<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#158\">Atom\\Framework\\WebServiceProvider::providePath<\/a>"],[100,2,"<a href=\"WebServiceProvider.php.html#172\">Atom\\Framework\\WebServiceProvider::provideRequestHandler<\/a>"],[90.9090909090909,2,"<a href=\"WebServiceProvider.php.html#190\">Atom\\Framework\\WebServiceProvider::providerRouting<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#213\">Atom\\Framework\\WebServiceProvider::provideApp<\/a>"],[100,1,"<a href=\"WebServiceProvider.php.html#226\">Atom\\Framework\\WebServiceProvider::provideEmitter<\/a>"],[100,2,"<a href=\"WebServiceProvider.php.html#239\">Atom\\Framework\\WebServiceProvider::makeRouter<\/a>"],[100,2,"<a href=\"WebServiceProvider.php.html#254\">Atom\\Framework\\WebServiceProvider::makeEmitter<\/a>"],[100,2,"<a href=\"WebServiceProvider.php.html#269\">Atom\\Framework\\WebServiceProvider::makeRequestHandler<\/a>"],[100,1,"<a href=\"Http\/ConvertMimeTypeToFormat.php.html#189\">Atom\\Framework\\Http\\ConvertMimeTypeToFormat::getFormatOfMime<\/a>"],[0,6,"<a href=\"Http\/Middlewares\/DefinitionToResponseTrait.php.html#33\">Atom\\Framework\\Http\\Middlewares\\DefinitionToResponseTrait::definitionToResponse<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

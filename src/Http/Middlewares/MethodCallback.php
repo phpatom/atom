@@ -10,6 +10,7 @@ use Atom\DI\Exceptions\NotFoundException;
 use Atom\Framework\Http\RequestHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use ReflectionException;
 
 class MethodCallback extends AbstractMiddleware
 {
@@ -45,6 +46,10 @@ class MethodCallback extends AbstractMiddleware
      * @param ServerRequestInterface $request
      * @param RequestHandler $handler
      * @return ResponseInterface
+     * @throws CircularDependencyException
+     * @throws ContainerException
+     * @throws NotFoundException
+     * @throws ReflectionException
      */
     public function run(ServerRequestInterface $request, RequestHandler $handler): ResponseInterface
     {
@@ -62,6 +67,7 @@ class MethodCallback extends AbstractMiddleware
      * @throws CircularDependencyException
      * @throws ContainerException
      * @throws NotFoundException
+     * @throws ReflectionException
      */
     public static function call(
         $object,
@@ -73,5 +79,21 @@ class MethodCallback extends AbstractMiddleware
     ): ?ResponseInterface {
         $definition = Definition::callTo($method)->method()->on($object);
         return self::definitionToResponse($definition, $request, $handler, $args, $mapping);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getObject()
+    {
+        return $this->object;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMethod(): string
+    {
+        return $this->method;
     }
 }

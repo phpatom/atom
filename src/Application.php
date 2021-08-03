@@ -13,17 +13,20 @@ use Atom\Framework\Contracts\EmitterContract;
 use Atom\Framework\Contracts\HasKernel;
 use Atom\Framework\Contracts\ServiceProviderContract;
 use Atom\Framework\FileSystem\Path;
+use Atom\Framework\Http\Middlewares\DispatchRoutes;
 use Atom\Framework\Http\RequestHandler;
+use Atom\Framework\Http\ResponseSender;
 use Atom\Routing\CanRegisterRoute;
 use Atom\Routing\Route;
 use Atom\Routing\Router;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 use ReflectionException;
 use Throwable;
 
-class Application
+class Application implements  HasKernel
 {
     /**
      * @var Kernel
@@ -57,7 +60,8 @@ class Application
         HasKernel $hasKernel,
         ?WebServiceProvider $webServiceProvider = null,
         bool $preventDefaultProvider = false
-    ) {
+    )
+    {
         $this->kernel = $hasKernel->getKernel();
         if ((!$preventDefaultProvider) || ($webServiceProvider != null)) {
             $this->kernel->use($webServiceProvider ?? new WebServiceProvider());
@@ -78,7 +82,8 @@ class Application
     public static function create(
         string $appDir,
         string $env = Env::DEV
-    ): self {
+    ): self
+    {
         return new self(new Kernel($appDir, $env), new WebServiceProvider());
     }
 
@@ -148,8 +153,8 @@ class Application
     /**
      * @throws CircularDependencyException
      * @throws ContainerException
-     * @throws Exceptions\RequestHandlerException
      * @throws NotFoundException
+     * @throws ReflectionException
      * @throws Throwable
      */
     public function run()
@@ -159,12 +164,25 @@ class Application
     }
 
     /**
+     * @return $this
+     * @throws CircularDependencyException
+     * @throws ContainerException
+     * @throws NotFoundException
+     * @throws ReflectionException
+     */
+    public function withRouting(): Application
+    {
+        $this->add(DispatchRoutes::class);
+        return $this;
+    }
+
+    /**
      * @param ServerRequestInterface $request
      * @return ResponseInterface
      * @throws CircularDependencyException
      * @throws ContainerException
-     * @throws Exceptions\RequestHandlerException
      * @throws NotFoundException
+     * @throws ReflectionException
      * @throws Throwable
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -196,7 +214,7 @@ class Application
     }
 
     /**
-     * @return mixed|void
+     * @return RequestHandler|RequestHandlerInterface
      * @throws CircularDependencyException
      * @throws ContainerException
      * @throws NotFoundException
@@ -205,7 +223,7 @@ class Application
     public function requestHandler(): RequestHandler
     {
         if ($this->requestHandler == null) {
-            $this->requestHandler = $this->container()->get(RequestHandler::class);
+            $this->requestHandler = $this->container()->get(RequestHandlerInterface::class);
         }
         return $this->requestHandler;
     }
@@ -275,28 +293,28 @@ class Application
      * @return Application
      * @throws CircularDependencyException
      * @throws ContainerException
-     * @throws Exceptions\RequestHandlerException
      * @throws NotFoundException v
      * @throws ReflectionException
      */
     public function add($middleware): Application
     {
-        $this->requestHandler()->pipe($middleware);
+        $this->requestHandler()
+            ->add($middleware);
         return $this;
     }
 
     /**
-     * @param $middleware
+     * @param array $middlewares
      * @return Application
      * @throws CircularDependencyException
      * @throws ContainerException
-     * @throws Exceptions\RequestHandlerException
      * @throws NotFoundException v
      * @throws ReflectionException
      */
-    public function load($middleware): Application
+    public function middlewares(array $middlewares): Application
     {
-        $this->requestHandler()->load($middleware);
+        $this->requestHandler()
+            ->middlewares($middlewares);
         return $this;
     }
 
@@ -355,5 +373,22 @@ class Application
     {
         $this->kernel()->providers($providers);
         return $this;
+    }
+
+    /**
+     * @return ResponseSender
+     * @throws CircularDependencyException
+     * @throws ContainerException
+     * @throws NotFoundException
+     * @throws ReflectionException
+     */
+    public function respond(): ResponseSender
+    {
+        return new ResponseSender($this->router());
+    }
+
+    public function getKernel(): Kernel
+    {
+        return $this->kernel;
     }
 }

@@ -4,6 +4,7 @@
 namespace Atom\Framework\Http;
 
 use Atom\Routing\Contracts\RouterContract;
+use JsonSerializable;
 use Laminas\Diactoros\Response as BaseResponse;
 use Psr\Http\Message\ResponseInterface;
 
@@ -30,24 +31,24 @@ class ResponseSender
 
     public function send(
         $data = null,
-        int $status = 200
+        int $status = 200,
+        array $headers = []
     ): ResponseInterface {
         if (is_null($data)) {
-            return $this->empty($status);
+            return $this->empty($status, $headers);
         }
-        if (is_array($data)) {
-            return Response::json($data, $status);
+        if (is_array($data) || ($data instanceof JsonSerializable)) {
+            return Response::json($data, $status, $headers);
         }
-        return Response::html($data, $status);
+        return Response::html($data, $status, $headers);
     }
 
     public function jsonString(
         string $data,
         int $status = 200,
-        array $headers = [],
-        int $encodingOptions = BaseResponse\JsonResponse::DEFAULT_JSON_FLAGS
+        array $headers = []
     ): JsonStringResponse {
-        return Response::jsonString($data, $status, $headers, $encodingOptions);
+        return Response::jsonString($data, $status, $headers);
     }
 
     public function html(
@@ -75,7 +76,7 @@ class ResponseSender
 
     public function redirect(
         $uri,
-        int $status = 200,
+        int $status = 302,
         array $headers = []
     ): BaseResponse\RedirectResponse {
         return Response::redirect($uri, $status, $headers);
@@ -91,7 +92,7 @@ class ResponseSender
     public function redirectRoute(
         $uri,
         array $data = [],
-        int $status = 200,
+        int $status = 302,
         array $headers = []
     ): BaseResponse\RedirectResponse {
         return $this->redirect($this->router->generateUrl($uri, $data), $status, $headers);

@@ -8,7 +8,6 @@ use Atom\DI\Exceptions\CircularDependencyException;
 use Atom\DI\Exceptions\ContainerException;
 use Atom\DI\Exceptions\NotFoundException;
 use Atom\Framework\Exceptions\InvalidRouteHandlerException;
-use Atom\Framework\Exceptions\RequestHandlerException;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Routing\Contracts\RouterContract;
 use Atom\Routing\MatchedRoute;
@@ -44,7 +43,6 @@ class DispatchRoutes extends AbstractMiddleware
      * @throws InvalidRouteHandlerException
      * @throws NotFoundException
      * @throws ReflectionException
-     * @throws RequestHandlerException
      * @throws Exception
      */
     public function run(ServerRequestInterface $request, RequestHandler $handler): ResponseInterface
@@ -57,13 +55,18 @@ class DispatchRoutes extends AbstractMiddleware
         $routeHandlers = [$groupHandler, $routeHandler];
         $middlewares = [];
         foreach ($routeHandlers as $routeHandler) {
-            $middleware = $this->asMiddleware($routeHandler, $matchedRoute, $handler->container());
+            $middleware = $this->asMiddleware(
+                $routeHandler,
+                $matchedRoute,
+                $handler->container()
+            );
             if ($middleware != null) {
                 $middlewares[] = $middleware;
             }
         }
-        $handler->load($middlewares);
-        return $handler->handle($request);
+        return $handler
+            ->withNext($middlewares)
+            ->handle($request);
     }
 
     /**

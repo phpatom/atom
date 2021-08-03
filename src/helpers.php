@@ -31,11 +31,11 @@ if (!function_exists("app")) {
         return Application::of($kernel);
     }
 }
-if (function_exists("createAtom")) {
+if (function_exists("atomWith")) {
     /**
      * @return ApplicationFactory
      */
-    function createAtom(): ApplicationFactory
+    function atomWith(): ApplicationFactory
     {
         return new ApplicationFactory();
     }

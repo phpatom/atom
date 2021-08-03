@@ -49,7 +49,10 @@ class FunctionCallback extends AbstractMiddleware
      * @param ServerRequestInterface $request
      * @param RequestHandler $handler
      * @return ResponseInterface
+     * @throws CircularDependencyException
      * @throws ContainerException
+     * @throws NotFoundException
+     * @throws ReflectionException
      */
     public function run(ServerRequestInterface $request, RequestHandler $handler): ResponseInterface
     {
@@ -77,5 +80,13 @@ class FunctionCallback extends AbstractMiddleware
     ): ?ResponseInterface {
         $definition = Definition::callTo($callable)->function();
         return self::definitionToResponse($definition, $request, $handler, $args, $mapping);
+    }
+
+    /**
+     * @return callable
+     */
+    public function getCallback(): callable
+    {
+        return $this->callback;
     }
 }

@@ -3,23 +3,32 @@
 
 namespace Atom\Framework\Test;
 
+use Atom\DI\Container;
 use Atom\DI\Exceptions\CircularDependencyException;
 use Atom\DI\Exceptions\ContainerException;
 use Atom\DI\Exceptions\NotFoundException;
 use Atom\Event\AbstractEventListener;
 use Atom\Event\Exceptions\ListenerAlreadyAttachedToEvent;
-use Atom\Framework\ApplicationFactory;
-use Atom\Framework\Contracts\ServiceProviderContract;
-use Atom\Framework\Kernel;
-use Atom\Routing\Router;
 use Atom\Framework\Application;
+use Atom\Framework\ApplicationFactory;
+use Atom\Framework\Contracts\EmitterContract;
+use Atom\Framework\Contracts\ServiceProviderContract;
 use Atom\Framework\Events\ServiceProviderRegistrationFailure;
-use Atom\Framework\Exceptions\RequestHandlerException;
+use Atom\Framework\Http\Middlewares\DispatchRoutes;
+use Atom\Framework\Http\Request;
 use Atom\Framework\Http\RequestHandler;
+use Atom\Framework\Http\ResponseSender;
+use Atom\Framework\Kernel;
 use Atom\Framework\WebServiceProvider;
+use Atom\Routing\Router;
+use Laminas\Diactoros\Uri;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use ReflectionException;
 use RuntimeException;
 use Throwable;
 
@@ -61,8 +70,8 @@ class ApplicationTest extends TestCase
      * @throws ContainerException
      * @throws ListenerAlreadyAttachedToEvent
      * @throws NotFoundException
-     * @throws RequestHandlerException
      * @throws Throwable
+     * @throws ReflectionException
      */
     public function testRun()
     {
@@ -186,8 +195,8 @@ class ApplicationTest extends TestCase
      * @throws ContainerException
      * @throws ListenerAlreadyAttachedToEvent
      * @throws NotFoundException
-     * @throws RequestHandlerException
      * @throws Throwable
+     * @throws ReflectionException
      */
     public function testMiddlewareCanBeAdded()
     {
@@ -199,26 +208,6 @@ class ApplicationTest extends TestCase
          */
         $app = Application::with()->requestHandler($mock)->create(__DIR__);
         $app->add($middleware);
-    }
-
-    /**
-     * @throws CircularDependencyException
-     * @throws ContainerException
-     * @throws ListenerAlreadyAttachedToEvent
-     * @throws NotFoundException
-     * @throws RequestHandlerException
-     * @throws Throwable
-     */
-    public function testMiddlewareCanBeLoaded()
-    {
-        $middleware = $this->getMockClass(MiddlewareInterface::class);
-        /**
-         * @var RequestHandler|MockObject $mock
-         */
-        $mock = $this->getMockBuilder(RequestHandler::class)->disableOriginalConstructor()->getMock();
-        $mock->expects($this->exactly(1))->method("load")->with($middleware);
-        $app = Application::with()->requestHandler($mock)->create(__DIR__);
-        $app->load($middleware);
     }
 
     /**
@@ -272,5 +261,81 @@ class ApplicationTest extends TestCase
         $this->assertEquals($clone2->router(), $app->router());
         $this->assertEquals($clone2->requestHandler(), $app->requestHandler());
         $this->assertEquals($clone2->env(), $app->env());
+    }
+
+    public function testRoutesAreRegistered()
+    {
+        $app = Application::create(__DIR__);
+        $app->get("/foo", "bar");
+        $this->assertEquals(
+            $app->router()->dispatch(
+                new Request([], [], new Uri("http://localhost/foo"))
+            )->getAttribute(Router::MATCHED_ROUTE_ATTRIBUTE_KEY)
+                ->getRoute()->getHandler(),
+            "bar"
+        );
+    }
+
+    public function testWithRouting()
+    {
+        $app = Application::create(__DIR__);
+        $this->assertEquals([], $app->requestHandler()->getFactoryPipes());
+        $app->withRouting();
+        $this->assertCount(1, $app->requestHandler()->getFactoryPipes());
+        $this->assertEquals(
+            DispatchRoutes::class,
+            $app->requestHandler()->getFactoryPipes()[0]
+        );
+    }
+
+    public function testRespond()
+    {
+        $app = Application::create(__DIR__);
+        $this->assertInstanceOf(
+            ResponseSender::class,
+            $app->respond()
+        );
+    }
+
+    public function testEmit()
+    {
+        $mockEmitter = $this->getMockBuilder(EmitterContract::class)
+            ->getMock();
+        $app = Application::with()
+            ->emitter($mockEmitter)->
+            create(__DIR__);
+        $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
+        $mockEmitter->expects($this->once())->method("emit")->with($response);
+        $app->emit($response);
+    }
+
+    public function testMiddlewares()
+    {
+        $app = Application::create("foo");
+        $this->assertEquals([], $app->requestHandler()->getFactoryPipes());
+        $app->middlewares($middlewares = [
+            "foo", "bar"
+        ]);
+        $this->assertEquals($middlewares, $app->requestHandler()->getFactoryPipes());
+    }
+
+    public function testHandle()
+    {
+        $container = new Container();
+        $kernel = $this->getMockBuilder(Kernel::class)
+            ->setConstructorArgs([
+                "foo", null, $container
+            ])->getMock();
+        $kernel->expects($this->once())->method("boot");
+        $kernel->method("container")->willReturn($container);
+        $kernel->method("getKernel")->willReturnSelf();
+
+        $requestHandler = $this->getMockBuilder(RequestHandler::class)
+            ->disableOriginalConstructor()->getMock();
+        $request = $this->getMockBuilder(ServerRequestInterface::class)->getMock();
+        $requestHandler->expects($this->once())->method("handle")->with($request);
+        $container->bind([RequestHandler::class, RequestHandlerInterface::class])->toObject($requestHandler);
+        $app = Application::of($kernel);
+        $app->handle($request);
     }
 }

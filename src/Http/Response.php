@@ -29,9 +29,8 @@ class Response extends BaseResponse
         string $data,
         int $status = 200,
         array $headers = [],
-        int $encodingOptions = BaseResponse\JsonResponse::DEFAULT_JSON_FLAGS
     ): JsonStringResponse {
-        return new JsonStringResponse($data, $status, $headers, $encodingOptions);
+        return new JsonStringResponse($data, $status, $headers);
     }
 
     public static function html(
@@ -59,7 +58,7 @@ class Response extends BaseResponse
 
     public static function redirect(
         $uri,
-        int $status = 200,
+        int $status = 302,
         array $headers = []
     ): BaseResponse\RedirectResponse {
         return new BaseResponse\RedirectResponse($uri, $status, $headers);
@@ -84,7 +83,7 @@ class Response extends BaseResponse
         HasKernel $kernel,
         $uri,
         array $data = [],
-        int $status = 200,
+        int $status = 302,
         array $headers = []
     ): BaseResponse\RedirectResponse {
         return self::redirect(Application::of($kernel)->router()->generateUrl($uri, $data), $status, $headers);

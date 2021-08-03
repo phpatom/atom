@@ -1,19 +1,20 @@
 <?php
 
 
-namespace Atom\Framework\Http;
+namespace Atom\Framework\Pipeline;
 
 use Atom\Framework\Contracts\PipelineProcessorContract;
+use RuntimeException;
 
 class PipelineFactory
 {
-    protected array $pipes;
+    protected array $pipes = [];
     /**
      * @var mixed
      */
-    protected $data;
+    protected $data = null;
 
-    protected PipelineProcessorContract $processor;
+    protected ?PipelineProcessorContract $processor = null;
 
     /**
      * @param $data
@@ -35,20 +36,66 @@ class PipelineFactory
         return $this;
     }
 
+    public function add($pipe): PipelineFactory
+    {
+        $this->pipes[] = $pipe;
+        return $this;
+    }
+
+    public function addPipes(array $pipes): PipelineFactory
+    {
+        $this->pipes = array_merge($this->pipes ?? [], $pipes);
+        return $this;
+    }
+
     public function via(
         PipelineProcessorContract $processor
-    ): PipelineFactory {
+    ): PipelineFactory
+    {
         $this->processor = $processor;
         return $this;
     }
 
     public function make(): Pipeline
     {
+        if (is_null($this->data)) {
+            throw new RuntimeException("tried to make a pipeline without data");
+        }
+        if (is_null($this->processor)) {
+            throw new RuntimeException("tried to make a pipeline without a pipeline processor");
+        }
+        if (is_null($this->pipes) || empty($this->pipes)) {
+            throw new RuntimeException("tried to make a pipeline without pipes");
+        }
         return new Pipeline($this->data, $this->processor, $this->pipes);
     }
 
     public function run()
     {
         return $this->make()->run();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPipes(): array
+    {
+        return $this->pipes;
+    }
+
+    /**
+     * @return PipelineProcessorContract
+     */
+    public function getProcessor(): PipelineProcessorContract
+    {
+        return $this->processor;
     }
 }

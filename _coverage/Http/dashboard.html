@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/dani/Projects/atom/web/src/Http</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">/home/dani/Projects/atom/web/src</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Http</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#32">Atom\Framework\Http\Emitter\AbstractSapiEmitter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiEmitter.php.html#11">Atom\Framework\Http\Emitter\SapiEmitter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#19">Atom\Framework\Http\Emitter\SapiStreamEmitter</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/AbstractMiddleware.php.html#11">Atom\Framework\Http\Middlewares\AbstractMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#20">Atom\Framework\Http\Middlewares\DispatchRoutes</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/Pipeline.php.html#10">Atom\Framework\Http\Middlewares\Pipeline</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/DefinitionToResponseTrait.php.html#19">Atom\Framework\Http\Middlewares\DefinitionToResponseTrait</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/FunctionCallback.php.html#15">Atom\Framework\Http\Middlewares\FunctionCallback</a></td><td class="text-right">62%</td></tr>
+       <tr><td><a href="Middlewares/MethodCallback.php.html#15">Atom\Framework\Http\Middlewares\MethodCallback</a></td><td class="text-right">70%</td></tr>
+       <tr><td><a href="Middlewares/CallableMiddleware.php.html#11">Atom\Framework\Http\Middlewares\CallableMiddleware</a></td><td class="text-right">80%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#19">Atom\Framework\Http\Emitter\SapiStreamEmitter</a></td><td class="text-right">420</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#32">Atom\Framework\Http\Emitter\AbstractSapiEmitter</a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#20">Atom\Framework\Http\Middlewares\DispatchRoutes</a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Middlewares/DefinitionToResponseTrait.php.html#19">Atom\Framework\Http\Middlewares\DefinitionToResponseTrait</a></td><td class="text-right">42</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#34"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::assertNoPreviousOutput">assertNoPreviousOutput</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#56"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::emitStatusLine">emitStatusLine</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#77"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::emitHeaders">emitHeaders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#108"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::toWordCase">toWordCase</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#122"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeConnection">closeConnection</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#133"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeOutputBuffers">closeOutputBuffers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiEmitter.php.html#16"><abbr title="Atom\Framework\Http\Emitter\SapiEmitter::emit">emit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiEmitter.php.html#35"><abbr title="Atom\Framework\Http\Emitter\SapiEmitter::emitBody">emitBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#35"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::setMaxBufferLength">setMaxBufferLength</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#45"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emit">emit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#71"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBody">emitBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#101"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBodyRange">emitBodyRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#147"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::parseContentRange">parseContentRange</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/AbstractMiddleware.php.html#18"><abbr title="Atom\Framework\Http\Middlewares\AbstractMiddleware::process">process</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/CallableMiddleware.php.html#33"><abbr title="Atom\Framework\Http\Middlewares\CallableMiddleware::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#31"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#48"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#82"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::asMiddleware">asMiddleware</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/FunctionCallback.php.html#57"><abbr title="Atom\Framework\Http\Middlewares\FunctionCallback::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/FunctionCallback.php.html#74"><abbr title="Atom\Framework\Http\Middlewares\FunctionCallback::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/MethodCallback.php.html#54"><abbr title="Atom\Framework\Http\Middlewares\MethodCallback::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/MethodCallback.php.html#72"><abbr title="Atom\Framework\Http\Middlewares\MethodCallback::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/Pipeline.php.html#18"><abbr title="Atom\Framework\Http\Middlewares\Pipeline::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/Pipeline.php.html#29"><abbr title="Atom\Framework\Http\Middlewares\Pipeline::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/Pipeline.php.html#36"><abbr title="Atom\Framework\Http\Middlewares\Pipeline::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middlewares/DefinitionToResponseTrait.php.html#33"><abbr title="Atom\Framework\Http\Middlewares\DefinitionToResponseTrait::definitionToResponse">definitionToResponse</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#101"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBodyRange">emitBodyRange</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#82"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::asMiddleware">asMiddleware</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#133"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeOutputBuffers">closeOutputBuffers</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Middlewares/DefinitionToResponseTrait.php.html#33"><abbr title="Atom\Framework\Http\Middlewares\DefinitionToResponseTrait::definitionToResponse">definitionToResponse</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#71"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emitBody">emitBody</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#34"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::assertNoPreviousOutput">assertNoPreviousOutput</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Middlewares/DispatchRoutes.php.html#48"><abbr title="Atom\Framework\Http\Middlewares\DispatchRoutes::run">run</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#77"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::emitHeaders">emitHeaders</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Emitter/AbstractSapiEmitter.php.html#122"><abbr title="Atom\Framework\Http\Emitter\AbstractSapiEmitter::closeConnection">closeConnection</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#45"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::emit">emit</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Emitter/SapiStreamEmitter.php.html#147"><abbr title="Atom\Framework\Http\Emitter\SapiStreamEmitter::parseContentRange">parseContentRange</abbr></a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.6</a> using <a href="https://secure.php.net/" target="_top">PHP 8.0.8</a> with <a href="https://xdebug.org/">Xdebug 3.0.4</a> and <a href="https://phpunit.de/">PHPUnit 9.5.4</a> at Fri Jul 30 14:30:31 UTC 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([7,0,0,0,0,0,0,1,1,1,0,10], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([26,0,0,0,0,0,0,0,0,0,0,66], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,19,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#32\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter<\/a>"],[100,1,"<a href=\"Emitter\/NoneEmitter.php.html#9\">Atom\\Framework\\Http\\Emitter\\NoneEmitter<\/a>"],[0,2,"<a href=\"Emitter\/SapiEmitter.php.html#11\">Atom\\Framework\\Http\\Emitter\\SapiEmitter<\/a>"],[0,20,"<a href=\"Emitter\/SapiStreamEmitter.php.html#19\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter<\/a>"],[100,4,"<a href=\"JsonStringResponse.php.html#10\">Atom\\Framework\\Http\\JsonStringResponse<\/a>"],[100,14,"<a href=\"MiddlewareProcessor.php.html#17\">Atom\\Framework\\Http\\MiddlewareProcessor<\/a>"],[0,1,"<a href=\"Middlewares\/AbstractMiddleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\AbstractMiddleware<\/a>"],[80,3,"<a href=\"Middlewares\/CallableMiddleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware<\/a>"],[0,13,"<a href=\"Middlewares\/DispatchRoutes.php.html#20\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes<\/a>"],[62.5,4,"<a href=\"Middlewares\/FunctionCallback.php.html#15\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback<\/a>"],[70,5,"<a href=\"Middlewares\/MethodCallback.php.html#15\">Atom\\Framework\\Http\\Middlewares\\MethodCallback<\/a>"],[100,2,"<a href=\"Middlewares\/Middleware.php.html#9\">Atom\\Framework\\Http\\Middlewares\\Middleware<\/a>"],[0,3,"<a href=\"Middlewares\/Pipeline.php.html#10\">Atom\\Framework\\Http\\Middlewares\\Pipeline<\/a>"],[100,2,"<a href=\"Middlewares\/ResponseMiddleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\ResponseMiddleware<\/a>"],[100,33,"<a href=\"Request.php.html#13\">Atom\\Framework\\Http\\Request<\/a>"],[100,17,"<a href=\"RequestHandler.php.html#25\">Atom\\Framework\\Http\\RequestHandler<\/a>"],[100,7,"<a href=\"Response.php.html#17\">Atom\\Framework\\Http\\Response<\/a>"],[100,12,"<a href=\"ResponseSender.php.html#11\">Atom\\Framework\\Http\\ResponseSender<\/a>"],[100,1,"<a href=\"ConvertMimeTypeToFormat.php.html#6\">Atom\\Framework\\Http\\ConvertMimeTypeToFormat<\/a>"],[0,6,"<a href=\"Middlewares\/DefinitionToResponseTrait.php.html#19\">Atom\\Framework\\Http\\Middlewares\\DefinitionToResponseTrait<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,4,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#34\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::assertNoPreviousOutput<\/a>"],[0,1,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#56\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::emitStatusLine<\/a>"],[0,3,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#77\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::emitHeaders<\/a>"],[0,1,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#108\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::toWordCase<\/a>"],[0,3,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#122\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::closeConnection<\/a>"],[0,7,"<a href=\"Emitter\/AbstractSapiEmitter.php.html#133\">Atom\\Framework\\Http\\Emitter\\AbstractSapiEmitter::closeOutputBuffers<\/a>"],[100,1,"<a href=\"Emitter\/NoneEmitter.php.html#12\">Atom\\Framework\\Http\\Emitter\\NoneEmitter::emit<\/a>"],[0,1,"<a href=\"Emitter\/SapiEmitter.php.html#16\">Atom\\Framework\\Http\\Emitter\\SapiEmitter::emit<\/a>"],[0,1,"<a href=\"Emitter\/SapiEmitter.php.html#35\">Atom\\Framework\\Http\\Emitter\\SapiEmitter::emitBody<\/a>"],[0,1,"<a href=\"Emitter\/SapiStreamEmitter.php.html#35\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::setMaxBufferLength<\/a>"],[0,3,"<a href=\"Emitter\/SapiStreamEmitter.php.html#45\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::emit<\/a>"],[0,5,"<a href=\"Emitter\/SapiStreamEmitter.php.html#71\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::emitBody<\/a>"],[0,8,"<a href=\"Emitter\/SapiStreamEmitter.php.html#101\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::emitBodyRange<\/a>"],[0,3,"<a href=\"Emitter\/SapiStreamEmitter.php.html#147\">Atom\\Framework\\Http\\Emitter\\SapiStreamEmitter::parseContentRange<\/a>"],[100,1,"<a href=\"JsonStringResponse.php.html#24\">Atom\\Framework\\Http\\JsonStringResponse::__construct<\/a>"],[100,1,"<a href=\"JsonStringResponse.php.html#38\">Atom\\Framework\\Http\\JsonStringResponse::getPayload<\/a>"],[100,1,"<a href=\"JsonStringResponse.php.html#43\">Atom\\Framework\\Http\\JsonStringResponse::createBodyFromJson<\/a>"],[100,1,"<a href=\"JsonStringResponse.php.html#55\">Atom\\Framework\\Http\\JsonStringResponse::setPayload<\/a>"],[100,1,"<a href=\"MiddlewareProcessor.php.html#25\">Atom\\Framework\\Http\\MiddlewareProcessor::__construct<\/a>"],[100,2,"<a href=\"MiddlewareProcessor.php.html#40\">Atom\\Framework\\Http\\MiddlewareProcessor::process<\/a>"],[100,10,"<a href=\"MiddlewareProcessor.php.html#54\">Atom\\Framework\\Http\\MiddlewareProcessor::getMiddleware<\/a>"],[100,1,"<a href=\"MiddlewareProcessor.php.html#77\">Atom\\Framework\\Http\\MiddlewareProcessor::shouldStop<\/a>"],[0,1,"<a href=\"Middlewares\/AbstractMiddleware.php.html#18\">Atom\\Framework\\Http\\Middlewares\\AbstractMiddleware::process<\/a>"],[100,0,"<a href=\"Middlewares\/AbstractMiddleware.php.html#23\">Atom\\Framework\\Http\\Middlewares\\AbstractMiddleware::run<\/a>"],[100,1,"<a href=\"Middlewares\/CallableMiddleware.php.html#19\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware::__construct<\/a>"],[100,1,"<a href=\"Middlewares\/CallableMiddleware.php.html#25\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware::process<\/a>"],[0,1,"<a href=\"Middlewares\/CallableMiddleware.php.html#33\">Atom\\Framework\\Http\\Middlewares\\CallableMiddleware::getName<\/a>"],[0,1,"<a href=\"Middlewares\/DispatchRoutes.php.html#31\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes::__construct<\/a>"],[0,4,"<a href=\"Middlewares\/DispatchRoutes.php.html#48\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes::run<\/a>"],[0,8,"<a href=\"Middlewares\/DispatchRoutes.php.html#82\">Atom\\Framework\\Http\\Middlewares\\DispatchRoutes::asMiddleware<\/a>"],[100,1,"<a href=\"Middlewares\/FunctionCallback.php.html#40\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::__construct<\/a>"],[0,1,"<a href=\"Middlewares\/FunctionCallback.php.html#57\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::run<\/a>"],[0,1,"<a href=\"Middlewares\/FunctionCallback.php.html#74\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::call<\/a>"],[100,1,"<a href=\"Middlewares\/FunctionCallback.php.html#88\">Atom\\Framework\\Http\\Middlewares\\FunctionCallback::getCallback<\/a>"],[100,1,"<a href=\"Middlewares\/MethodCallback.php.html#36\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::__construct<\/a>"],[0,1,"<a href=\"Middlewares\/MethodCallback.php.html#54\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::run<\/a>"],[0,1,"<a href=\"Middlewares\/MethodCallback.php.html#72\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::call<\/a>"],[100,1,"<a href=\"Middlewares\/MethodCallback.php.html#87\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::getObject<\/a>"],[100,1,"<a href=\"Middlewares\/MethodCallback.php.html#95\">Atom\\Framework\\Http\\Middlewares\\MethodCallback::getMethod<\/a>"],[100,1,"<a href=\"Middlewares\/Middleware.php.html#11\">Atom\\Framework\\Http\\Middlewares\\Middleware::function<\/a>"],[100,1,"<a href=\"Middlewares\/Middleware.php.html#16\">Atom\\Framework\\Http\\Middlewares\\Middleware::response<\/a>"],[0,1,"<a href=\"Middlewares\/Pipeline.php.html#18\">Atom\\Framework\\Http\\Middlewares\\Pipeline::__construct<\/a>"],[0,1,"<a href=\"Middlewares\/Pipeline.php.html#29\">Atom\\Framework\\Http\\Middlewares\\Pipeline::run<\/a>"],[0,1,"<a href=\"Middlewares\/Pipeline.php.html#36\">Atom\\Framework\\Http\\Middlewares\\Pipeline::create<\/a>"],[100,1,"<a href=\"Middlewares\/ResponseMiddleware.php.html#18\">Atom\\Framework\\Http\\Middlewares\\ResponseMiddleware::__construct<\/a>"],[100,1,"<a href=\"Middlewares\/ResponseMiddleware.php.html#23\">Atom\\Framework\\Http\\Middlewares\\ResponseMiddleware::process<\/a>"],[100,1,"<a href=\"Request.php.html#22\">Atom\\Framework\\Http\\Request::incoming<\/a>"],[100,2,"<a href=\"Request.php.html#27\">Atom\\Framework\\Http\\Request::from<\/a>"],[100,1,"<a href=\"Request.php.html#47\">Atom\\Framework\\Http\\Request::route<\/a>"],[100,2,"<a href=\"Request.php.html#52\">Atom\\Framework\\Http\\Request::isJson<\/a>"],[100,1,"<a href=\"Request.php.html#58\">Atom\\Framework\\Http\\Request::isMethod<\/a>"],[100,4,"<a href=\"Request.php.html#68\">Atom\\Framework\\Http\\Request::expectsJson<\/a>"],[100,1,"<a href=\"Request.php.html#76\">Atom\\Framework\\Http\\Request::isAjax<\/a>"],[100,1,"<a href=\"Request.php.html#84\">Atom\\Framework\\Http\\Request::isPjax<\/a>"],[100,5,"<a href=\"Request.php.html#93\">Atom\\Framework\\Http\\Request::wantsJson<\/a>"],[100,6,"<a href=\"Request.php.html#112\">Atom\\Framework\\Http\\Request::accepts<\/a>"],[100,4,"<a href=\"Request.php.html#135\">Atom\\Framework\\Http\\Request::acceptsAnyContentType<\/a>"],[100,1,"<a href=\"Request.php.html#149\">Atom\\Framework\\Http\\Request::acceptsJson<\/a>"],[100,1,"<a href=\"Request.php.html#159\">Atom\\Framework\\Http\\Request::acceptsHtml<\/a>"],[100,3,"<a href=\"Request.php.html#167\">Atom\\Framework\\Http\\Request::getAcceptableContentTypes<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#41\">Atom\\Framework\\Http\\RequestHandler::__construct<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#55\">Atom\\Framework\\Http\\RequestHandler::getKernel<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#63\">Atom\\Framework\\Http\\RequestHandler::container<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#75\">Atom\\Framework\\Http\\RequestHandler::router<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#87\">Atom\\Framework\\Http\\RequestHandler::run<\/a>"],[100,2,"<a href=\"RequestHandler.php.html#98\">Atom\\Framework\\Http\\RequestHandler::handle<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#109\">Atom\\Framework\\Http\\RequestHandler::add<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#115\">Atom\\Framework\\Http\\RequestHandler::middlewares<\/a>"],[100,2,"<a href=\"RequestHandler.php.html#126\">Atom\\Framework\\Http\\RequestHandler::ensureStarted<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#148\">Atom\\Framework\\Http\\RequestHandler::emit<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#164\">Atom\\Framework\\Http\\RequestHandler::emitter<\/a>"],[100,2,"<a href=\"RequestHandler.php.html#173\">Atom\\Framework\\Http\\RequestHandler::withNext<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#183\">Atom\\Framework\\Http\\RequestHandler::getFactoryPipes<\/a>"],[100,1,"<a href=\"RequestHandler.php.html#192\">Atom\\Framework\\Http\\RequestHandler::setPipeline<\/a>"],[100,1,"<a href=\"Response.php.html#19\">Atom\\Framework\\Http\\Response::json<\/a>"],[100,1,"<a href=\"Response.php.html#28\">Atom\\Framework\\Http\\Response::jsonString<\/a>"],[100,1,"<a href=\"Response.php.html#36\">Atom\\Framework\\Http\\Response::html<\/a>"],[100,1,"<a href=\"Response.php.html#44\">Atom\\Framework\\Http\\Response::text<\/a>"],[100,1,"<a href=\"Response.php.html#52\">Atom\\Framework\\Http\\Response::empty<\/a>"],[100,1,"<a href=\"Response.php.html#59\">Atom\\Framework\\Http\\Response::redirect<\/a>"],[100,1,"<a href=\"Response.php.html#82\">Atom\\Framework\\Http\\Response::redirectRoute<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#18\">Atom\\Framework\\Http\\ResponseSender::__construct<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#23\">Atom\\Framework\\Http\\ResponseSender::json<\/a>"],[100,4,"<a href=\"ResponseSender.php.html#32\">Atom\\Framework\\Http\\ResponseSender::send<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#46\">Atom\\Framework\\Http\\ResponseSender::jsonString<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#54\">Atom\\Framework\\Http\\ResponseSender::html<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#62\">Atom\\Framework\\Http\\ResponseSender::text<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#70\">Atom\\Framework\\Http\\ResponseSender::empty<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#77\">Atom\\Framework\\Http\\ResponseSender::redirect<\/a>"],[100,1,"<a href=\"ResponseSender.php.html#92\">Atom\\Framework\\Http\\ResponseSender::redirectRoute<\/a>"],[100,1,"<a href=\"ConvertMimeTypeToFormat.php.html#189\">Atom\\Framework\\Http\\ConvertMimeTypeToFormat::getFormatOfMime<\/a>"],[0,6,"<a href=\"Middlewares\/DefinitionToResponseTrait.php.html#33\">Atom\\Framework\\Http\\Middlewares\\DefinitionToResponseTrait::definitionToResponse<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

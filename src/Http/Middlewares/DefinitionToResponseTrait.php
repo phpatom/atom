@@ -12,6 +12,7 @@ use Atom\Framework\Contracts\RendererContract;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Framework\Http\Response;
 use Atom\Framework\Http\ResponseSender;
+use JsonSerializable;
 use Psr\Http\Message\ServerRequestInterface;
 use ReflectionException;
 
@@ -50,7 +51,8 @@ trait DefinitionToResponseTrait
         $c->getResolutionStack()->clear();
         $response = $c->interpret($definition);
         $c->getResolutionStack()->clear();
-        if (is_array($response)) {
+        if (is_array($response) ||
+            (is_object($response) &&($response instanceof JsonSerializable))) {
             return Response::json($response);
         }
         if (is_string($response)) {

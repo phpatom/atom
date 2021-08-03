@@ -12,19 +12,19 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class Request extends ServerRequest
 {
-    use Format;
+    use ConvertMimeTypeToFormat;
 
     /**
      * @var Accept[]
      */
-    private array $acceptedContentTypes;
+    private ?array $acceptedContentTypes = null;
 
     public static function incoming(): Request
     {
-        return self::convert(ServerRequestFactory::fromGlobals());
+        return self::from(ServerRequestFactory::fromGlobals());
     }
 
-    public static function convert(ServerRequestInterface $request): Request
+    public static function from(ServerRequestInterface $request): Request
     {
         $new = new self(
             $request->getServerParams(),
@@ -53,6 +53,11 @@ class Request extends ServerRequest
     {
         $contentType = $this->getHeaderLine("content-type");
         return str_contains($contentType, '/json') || str_contains($contentType, '+json');
+    }
+
+    public function isMethod($method): bool
+    {
+        return strtolower($this->getMethod()) == strtolower($method);
     }
 
     /**
@@ -91,8 +96,13 @@ class Request extends ServerRequest
         if (empty($acceptable)) {
             return false;
         }
-        $type = $acceptable[0]->getType();
-        return str_contains($type, '/json') || str_contains($type, '+json');
+        foreach ($acceptable as $accepted) {
+            $type = $accepted->getType();
+            if (str_contains($type, '/json') || str_contains($type, '+json')) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -102,7 +112,7 @@ class Request extends ServerRequest
     public function accepts(string $contentType): bool
     {
         $accepts = $this->getAcceptableContentTypes();
-        if (count($accepts) === 0) {
+        if (empty($accepts)) {
             return true;
         }
         foreach ($accepts as $accept) {
@@ -152,22 +162,6 @@ class Request extends ServerRequest
     }
 
     /**
-     * Get the data format expected in the response.
-     *
-     * @param string $default
-     * @return string
-     */
-    public function format($default = 'html'): string
-    {
-        foreach ($this->getAcceptableContentTypes() as $type) {
-            if ($typeFormat = $this->getFormat($type->getType())) {
-                return $typeFormat;
-            }
-        }
-        return $default;
-    }
-
-    /**
      * @return Accept[]
      */
     private function getAcceptableContentTypes(): array
@@ -175,6 +169,9 @@ class Request extends ServerRequest
         if (is_null($this->acceptedContentTypes)) {
             $negotiator = new Negotiator();
             $acceptHeader = $this->getHeaderLine("Accept");
+            if ($acceptHeader == "") {
+                return [];
+            }
             $this->acceptedContentTypes = $negotiator->getOrderedElements($acceptHeader) ?? [];
         }
         return $this->acceptedContentTypes;
