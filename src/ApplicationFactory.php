@@ -26,6 +26,7 @@ class ApplicationFactory
     private ?EmitterContract $emitter = null;
     private ?Kernel $kernel = null;
     private ?string $env = null;
+    private ?string $publicPath = null;
     /**
      * @var array<ServiceProviderContract>
      */
@@ -171,6 +172,17 @@ class ApplicationFactory
         return WebServiceProvider::create()
             ->requestHandler($this->requestHandler)
             ->router($this->router)
-            ->emitter($this->emitter);
+            ->emitter($this->emitter)
+            ->publicPath($this->publicPath);
+    }
+
+    /**
+     * @param string|null $publicPath
+     * @return ApplicationFactory
+     */
+    public function publicPath(?string $publicPath): ApplicationFactory
+    {
+        $this->publicPath = $publicPath;
+        return $this;
     }
 }

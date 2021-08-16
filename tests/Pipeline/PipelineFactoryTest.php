@@ -4,9 +4,11 @@
 namespace Atom\Framework\Test\Pipeline;
 
 use Atom\Framework\Contracts\PipelineProcessorContract;
+use Atom\Framework\Pipeline\NoDataException;
+use Atom\Framework\Pipeline\NoPipesException;
+use Atom\Framework\Pipeline\NoProcessorException;
 use Atom\Framework\Pipeline\PipelineFactory;
 use PHPUnit\Framework\TestCase;
-use RuntimeException;
 
 class PipelineFactoryTest extends TestCase
 {
@@ -41,7 +43,7 @@ class PipelineFactoryTest extends TestCase
         $processor = $this->getMockBuilder(PipelineProcessorContract::class)->getMock();
         $factory = new PipelineFactory();
         $factory->via($processor)->through(["foo", "bar"]);
-        $this->expectException(RuntimeException::class);
+        $this->expectException(NoDataException::class);
         $factory->make();
     }
 
@@ -49,7 +51,7 @@ class PipelineFactoryTest extends TestCase
     {
         $factory = new PipelineFactory();
         $factory->pipe("baz")->through(["foo", "bar"]);
-        $this->expectException(RuntimeException::class);
+        $this->expectException(NoProcessorException::class);
         $factory->make();
     }
 
@@ -58,7 +60,7 @@ class PipelineFactoryTest extends TestCase
         $processor = $this->getMockBuilder(PipelineProcessorContract::class)->getMock();
         $factory = new PipelineFactory();
         $factory->pipe("baz")->via($processor);
-        $this->expectException(RuntimeException::class);
+        $this->expectException(NoPipesException::class);
         $factory->make();
     }
 
@@ -67,7 +69,7 @@ class PipelineFactoryTest extends TestCase
         $processor = $this->getMockBuilder(PipelineProcessorContract::class)->getMock();
         $factory = new PipelineFactory();
         $factory->pipe("baz")->via($processor)->through([]);
-        $this->expectException(RuntimeException::class);
+        $this->expectException(NoPipesException::class);
         $factory->make();
     }
 

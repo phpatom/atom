@@ -4,13 +4,9 @@
 namespace Atom\Framework\Http\Middlewares;
 
 use Atom\DI\Definition;
-use Atom\DI\Exceptions\CircularDependencyException;
-use Atom\DI\Exceptions\ContainerException;
-use Atom\DI\Exceptions\NotFoundException;
 use Atom\Framework\Http\RequestHandler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use ReflectionException;
 
 class MethodCallback extends AbstractMiddleware
 {
@@ -46,10 +42,6 @@ class MethodCallback extends AbstractMiddleware
      * @param ServerRequestInterface $request
      * @param RequestHandler $handler
      * @return ResponseInterface
-     * @throws CircularDependencyException
-     * @throws ContainerException
-     * @throws NotFoundException
-     * @throws ReflectionException
      */
     public function run(ServerRequestInterface $request, RequestHandler $handler): ResponseInterface
     {
@@ -64,10 +56,6 @@ class MethodCallback extends AbstractMiddleware
      * @param array $args
      * @param array $mapping
      * @return mixed
-     * @throws CircularDependencyException
-     * @throws ContainerException
-     * @throws NotFoundException
-     * @throws ReflectionException
      */
     public static function call(
         $object,

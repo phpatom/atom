@@ -117,13 +117,15 @@ class ApplicationTest extends TestCase
     {
         $app = Application::create(__DIR__);
         $this->expectException(RuntimeException::class);
-        $app->use(new class implements ServiceProviderContract {
+        $app->use($provider = new class implements ServiceProviderContract {
             public function register(Kernel $kernel)
             {
                 throw new RuntimeException("Sike!");
             }
         });
         $listener = new class extends AbstractEventListener {
+            private $event;
+
             public function called(): bool
             {
                 return $this->calls == 1;
@@ -131,6 +133,15 @@ class ApplicationTest extends TestCase
 
             public function on($event): void
             {
+                $this->event = $event;
+            }
+
+            /**
+             * @return mixed
+             */
+            public function getEvent(): ServiceProviderRegistrationFailure
+            {
+                return $this->event;
             }
         };
         $app->eventDispatcher()->addEventListener(
@@ -139,6 +150,10 @@ class ApplicationTest extends TestCase
         );
         $app->kernel()->boot();
         $this->assertTrue($listener->called());
+        $event = $listener->getEvent();
+        $this->assertInstanceOf(ServiceProviderRegistrationFailure::class, $event);
+        $this->assertEquals($provider, $event->getServiceProvider());
+        $this->assertInstanceOf(RuntimeException::class, $event->getException());
     }
 
     /**

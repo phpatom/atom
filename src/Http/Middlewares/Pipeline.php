@@ -37,4 +37,12 @@ class Pipeline extends AbstractMiddleware
     {
         return new self($middlewares);
     }
+
+    /**
+     * @return array
+     */
+    public function getMiddlewares(): array
+    {
+        return $this->middlewares;
+    }
 }

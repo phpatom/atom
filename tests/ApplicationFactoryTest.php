@@ -12,7 +12,7 @@ use Atom\Framework\Application;
 use Atom\Framework\ApplicationFactory;
 use Atom\Framework\Contracts\ServiceProviderContract;
 use Atom\Framework\Env;
-use Atom\Framework\Http\Emitter\SapiEmitter;
+use Atom\Framework\Http\Emitters\DefaultEmitter;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Framework\Kernel;
 use Atom\Framework\WebServiceProvider;
@@ -115,7 +115,7 @@ class ApplicationFactoryTest extends TestCase
      */
     public function testEmitter()
     {
-        $emitter = new SapiEmitter();
+        $emitter = new DefaultEmitter();
         $app = ApplicationFactory::with()->emitter($emitter)->create(__DIR__);
         $this->assertEquals($emitter, $app->emitter());
     }
@@ -161,7 +161,7 @@ class ApplicationFactoryTest extends TestCase
      * @throws ListenerAlreadyAttachedToEvent
      * @throws Throwable
      */
-    public function modules()
+    public function testModules()
     {
         $provider = new class implements ServiceProviderContract {
 
@@ -177,5 +177,13 @@ class ApplicationFactoryTest extends TestCase
         ])->create(__DIR__);
         $this->assertContains(get_class($provider), $app->getRegisteredProviders());
         $this->assertEquals("bar", $app->container()->get("foo"));
+    }
+
+    public function testPublicPath()
+    {
+        $app = ApplicationFactory::with()
+            ->publicPath("foo")
+            ->create(__DIR__);
+        $this->assertEquals("foo", $app->path()->public());
     }
 }

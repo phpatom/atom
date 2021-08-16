@@ -6,22 +6,18 @@ namespace Atom\Framework\Test;
 use Atom\DI\Exceptions\CircularDependencyException;
 use Atom\DI\Exceptions\ContainerException;
 use Atom\DI\Exceptions\NotFoundException;
-use Atom\DI\Exceptions\StorageNotFoundException;
-use Atom\Event\EventDispatcher;
 use Atom\Event\Exceptions\ListenerAlreadyAttachedToEvent;
 use Atom\Framework\Application;
 use Atom\Framework\Contracts\EmitterContract;
-use Atom\Framework\FileSystem\Path;
-use Atom\Framework\Http\Emitter\SapiEmitter;
-use Atom\Framework\Http\Emitter\SapiStreamEmitter;
+use Atom\Framework\Http\Emitters\DefaultEmitter;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Framework\Kernel;
+use Atom\Framework\Path;
 use Atom\Framework\WebServiceProvider;
 use Atom\Routing\Contracts\RouterContract;
 use Atom\Routing\Router;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Throwable;
 
@@ -53,7 +49,7 @@ class WebServiceProviderTest extends TestCase
         $this->assertEquals($app->router(), $kernel->get(RouterContract::class));
 
         $this->assertEquals($app->requestHandler()->emitter(), $kernel->get(EmitterContract::class));
-        $this->assertEquals($app->requestHandler()->emitter(), $kernel->get(SapiEmitter::class));
+        $this->assertEquals($app->requestHandler()->emitter(), $kernel->get(DefaultEmitter::class));
 
         $this->assertInstanceOf(RequestHandler::class, $app->requestHandler());
         $this->assertInstanceOf(RequestHandlerInterface::class, $app->requestHandler());
@@ -97,7 +93,7 @@ class WebServiceProviderTest extends TestCase
     public function testEmitter()
     {
         $kernel = new Kernel(__DIR__);
-        $emitter = new SapiStreamEmitter();
+        $emitter = new DefaultEmitter();
         $kernel->use(WebServiceProvider::create()->emitter($emitter));
         $this->assertEquals($kernel->get(EmitterContract::class), $emitter);
         $this->expectException(InvalidArgumentException::class);
@@ -118,7 +114,7 @@ class WebServiceProviderTest extends TestCase
         $kernel->use(WebServiceProvider::create()->router($router));
         $this->assertEquals($kernel->get(RouterContract::class), $router);
         $this->expectException(InvalidArgumentException::class);
-        WebServiceProvider::create()->router(new SapiEmitter());
+        WebServiceProvider::create()->router(new DefaultEmitter());
     }
 
     /**

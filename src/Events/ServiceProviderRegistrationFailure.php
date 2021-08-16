@@ -3,8 +3,8 @@
 
 namespace Atom\Framework\Events;
 
-use Atom\Framework\Contracts\ServiceProviderContract;
 use Atom\Event\AbstractEvent;
+use Atom\Framework\Contracts\ServiceProviderContract;
 use Throwable;
 
 class ServiceProviderRegistrationFailure extends AbstractEvent
@@ -12,15 +12,15 @@ class ServiceProviderRegistrationFailure extends AbstractEvent
     /**
      * @var ServiceProviderContract
      */
-    private ServiceProviderContract $contract;
+    private ServiceProviderContract $serviceProvider;
     /**
      * @var Throwable
      */
     private Throwable $exception;
 
-    public function __construct(ServiceProviderContract $contract, Throwable $exception)
+    public function __construct(ServiceProviderContract $serviceProvider, Throwable $exception)
     {
-        $this->contract = $contract;
+        $this->serviceProvider = $serviceProvider;
         $this->exception = $exception;
     }
 
@@ -35,8 +35,8 @@ class ServiceProviderRegistrationFailure extends AbstractEvent
     /**
      * @return ServiceProviderContract
      */
-    public function getContract(): ServiceProviderContract
+    public function getServiceProvider(): ServiceProviderContract
     {
-        return $this->contract;
+        return $this->serviceProvider;
     }
 }

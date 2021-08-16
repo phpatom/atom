@@ -4,11 +4,13 @@
 namespace Atom\Framework\Http;
 
 use Atom\Framework\Contracts\PipelineProcessorContract;
+use Atom\Framework\Events\MiddlewareLoaded;
 use Atom\Framework\Exceptions\RequestHandlerException;
 use Atom\Framework\Http\Middlewares\FunctionCallback;
 use Atom\Framework\Http\Middlewares\MethodCallback;
 use Atom\Framework\Pipeline\Pipeline;
 use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -22,12 +24,24 @@ class MiddlewareProcessor implements PipelineProcessorContract
      */
     private RequestHandlerInterface $requestHandler;
 
+    private ?EventDispatcherInterface $eventDispatcher = null;
+
     public function __construct(
         ContainerInterface $container,
         RequestHandlerInterface $requestHandler
     ) {
         $this->container = $container;
         $this->requestHandler = $requestHandler;
+        if ($this->container->has(EventDispatcherInterface::class)) {
+            $this->eventDispatcher = $this->container->get(EventDispatcherInterface::class);
+        }
+    }
+
+    private function dispatchMiddlewareLoaded(MiddlewareInterface $event)
+    {
+        if ($this->eventDispatcher != null) {
+            $this->eventDispatcher->dispatch(new MiddlewareLoaded($event));
+        }
     }
 
     /**
@@ -42,8 +56,9 @@ class MiddlewareProcessor implements PipelineProcessorContract
         if ($data instanceof ResponseInterface) {
             return $data;
         }
-        return $this->getMiddleware($handler)
-            ->process($data, $this->requestHandler->setPipeline($pipeline));
+        $middleware = $this->getMiddleware($handler);
+        $this->dispatchMiddlewareLoaded($middleware);
+        return $middleware->process($data, $this->requestHandler->setPipeline($pipeline));
     }
 
     /**
@@ -78,5 +93,4 @@ class MiddlewareProcessor implements PipelineProcessorContract
     {
         return ($result instanceof ResponseInterface);
     }
-
 }

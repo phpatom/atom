@@ -23,7 +23,8 @@
     "league/flysystem": "^2.0",
     "phpatom/di": "^0.3.0",
     "league/flysystem-memory": "2.0",
-    "phpatom/event": "^0.1.0"
+    "phpatom/event": "^0.1.0",
+    "narrowspark/http-emitter": "^2.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.*",
@@ -49,7 +50,10 @@
   "autoload-dev": {
     "psr-4": {
       "Atom\\Framework\\Test\\": "tests"
-    }
+    },
+    "files": [
+      "tests/Http/Emitters/helpers.php"
+    ]
   },
   "minimum-stability": "stable"
 }

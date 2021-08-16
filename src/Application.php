@@ -12,7 +12,7 @@ use Atom\Event\Exceptions\ListenerAlreadyAttachedToEvent;
 use Atom\Framework\Contracts\EmitterContract;
 use Atom\Framework\Contracts\HasKernel;
 use Atom\Framework\Contracts\ServiceProviderContract;
-use Atom\Framework\FileSystem\Path;
+use Atom\Framework\Path;
 use Atom\Framework\Http\Middlewares\DispatchRoutes;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Framework\Http\ResponseSender;
@@ -26,7 +26,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 use ReflectionException;
 use Throwable;
 
-class Application implements  HasKernel
+class Application implements HasKernel
 {
     /**
      * @var Kernel
@@ -60,8 +60,7 @@ class Application implements  HasKernel
         HasKernel $hasKernel,
         ?WebServiceProvider $webServiceProvider = null,
         bool $preventDefaultProvider = false
-    )
-    {
+    ) {
         $this->kernel = $hasKernel->getKernel();
         if ((!$preventDefaultProvider) || ($webServiceProvider != null)) {
             $this->kernel->use($webServiceProvider ?? new WebServiceProvider());
@@ -82,8 +81,7 @@ class Application implements  HasKernel
     public static function create(
         string $appDir,
         string $env = Env::DEV
-    ): self
-    {
+    ): self {
         return new self(new Kernel($appDir, $env), new WebServiceProvider());
     }
 

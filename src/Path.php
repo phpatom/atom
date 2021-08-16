@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Atom\Framework\FileSystem;
+namespace Atom\Framework;
 
 class Path
 {
@@ -18,7 +18,7 @@ class Path
     {
         $this->appPath = $this->removeTrailingSlash($appPath);
         if (!$publicPath) {
-            $publicPath = $this->join($this->appPath, "public");
+            $publicPath = $this->join($this->appPath, "../public");
         }
         $this->publicPath = $this->removeTrailingSlash($publicPath);
     }

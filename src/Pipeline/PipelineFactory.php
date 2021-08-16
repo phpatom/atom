@@ -4,7 +4,6 @@
 namespace Atom\Framework\Pipeline;
 
 use Atom\Framework\Contracts\PipelineProcessorContract;
-use RuntimeException;
 
 class PipelineFactory
 {
@@ -56,16 +55,22 @@ class PipelineFactory
         return $this;
     }
 
+    /**
+     * @return Pipeline
+     * @throws NoDataException
+     * @throws NoPipesException
+     * @throws NoProcessorException
+     */
     public function make(): Pipeline
     {
         if (is_null($this->data)) {
-            throw new RuntimeException("tried to make a pipeline without data");
+            throw new NoDataException("tried to make a pipeline without data");
         }
         if (is_null($this->processor)) {
-            throw new RuntimeException("tried to make a pipeline without a pipeline processor");
+            throw new NoProcessorException("tried to make a pipeline without a pipeline processor");
         }
         if (is_null($this->pipes) || empty($this->pipes)) {
-            throw new RuntimeException("tried to make a pipeline without pipes");
+            throw new NoPipesException("tried to make a pipeline without pipes");
         }
         return new Pipeline($this->data, $this->processor, $this->pipes);
     }

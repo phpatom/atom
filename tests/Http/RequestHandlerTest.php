@@ -5,6 +5,7 @@ namespace Atom\Framework\Test\Http;
 
 use Atom\Framework\Contracts\EmitterContract;
 use Atom\Framework\Http\Middlewares\Middleware;
+use Atom\Framework\Http\NoMiddlewareException;
 use Atom\Framework\Http\Request;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Framework\Http\Response;
@@ -22,6 +23,13 @@ class RequestHandlerTest extends TestCase
         $container = $kernel->container();
         $container->bind(RouterContract::class, $router ?? new Router());
         return new RequestHandler($container);
+    }
+
+    public function testItThrowsIfThereIsNotMiddleware()
+    {
+        $this->expectException(NoMiddlewareException::class);
+        $handler = $this->makehandler();
+        $handler->handle(new Request());
     }
 
     public function testRouter()
@@ -66,10 +74,10 @@ class RequestHandlerTest extends TestCase
         $handler = new RequestHandler($container);
         $request = new Request();
         $handler->middlewares([
-            Middleware::function(function ($req, $hand) {
+            Middleware::callable(function ($req, $hand) {
                 return $hand->handle($req->withAttribute("message", "foo"));
             }),
-            Middleware::function(function ($req, $hand) {
+            Middleware::callable(function ($req, $hand) {
                 return Response::text($req->getAttribute("message"), 404);
             }),
         ]);
@@ -85,18 +93,18 @@ class RequestHandlerTest extends TestCase
         $handler = new RequestHandler($container);
         $request = new Request();
         $handler->middlewares([
-            Middleware::function(function (Request $req, RequestHandler $handler) {
+            Middleware::callable(function (Request $req, RequestHandler $handler) {
                 $handler->withNext([
-                    Middleware::function(function ($req, RequestHandler $handler) {
+                    Middleware::callable(function ($req, RequestHandler $handler) {
                         $handler->withNext([
-                            Middleware::function(function (Request $req, RequestHandler $handler) {
+                            Middleware::callable(function (Request $req, RequestHandler $handler) {
                                 return $handler->handle(
                                     $req->withAttribute("body2", "bar")
                                 );
                             }, "2")
                         ]);
                         return $handler->handle($req->withAttribute("status", 401));
-                    }, "1"), Middleware::function(function ($req, $handler) {
+                    }, "1"), Middleware::callable(function ($req, $handler) {
                         return Response::text(
                             $req->getAttribute("body") . $req->getAttribute("body2"),
                             $req->getAttribute("status")

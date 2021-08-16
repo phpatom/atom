@@ -9,10 +9,8 @@ use Atom\DI\Exceptions\MultipleBindingException;
 use Atom\DI\Exceptions\NotFoundException;
 use Atom\Event\Exceptions\ListenerAlreadyAttachedToEvent;
 use Atom\Framework\Contracts\EmitterContract;
-use Atom\Framework\Contracts\RendererContract;
 use Atom\Framework\Contracts\ServiceProviderContract;
-use Atom\Framework\FileSystem\Path;
-use Atom\Framework\Http\Emitter\SapiEmitter;
+use Atom\Framework\Http\Emitters\DefaultEmitter;
 use Atom\Framework\Http\RequestHandler;
 use Atom\Framework\Http\ResponseSender;
 use Atom\Framework\Rendering\RoutingExtensionProvider;
@@ -36,9 +34,9 @@ class WebServiceProvider implements ServiceProviderContract
     private $router = Router::class;
 
     /**
-     * @var string|EmitterContract
+     * @var string|EmitterContract|null
      */
-    private $emitter = SapiEmitter::class;
+    private $emitter;
 
     /**
      * @var Container $container
@@ -198,10 +196,6 @@ class WebServiceProvider implements ServiceProviderContract
         $c->bindIfNotAvailable(ResponseSender::class, new ResponseSender(
             $router
         ));
-        //Extension
-        $c->resolved(RendererContract::class, function (RendererContract $renderer) use ($router) {
-            $renderer->addExtensions(new RoutingExtensionProvider($router));
-        });
     }
 
     /**
@@ -253,6 +247,9 @@ class WebServiceProvider implements ServiceProviderContract
      */
     private function makeEmitter(): EmitterContract
     {
+        if (is_null($this->emitter)) {
+            return new DefaultEmitter();
+        }
         if (is_string($this->emitter)) {
             return $this->container->get($this->emitter);
         }

@@ -11,6 +11,9 @@ use Atom\DI\Exceptions\NotFoundException;
 use Atom\Framework\Contracts\EmitterContract;
 use Atom\Framework\Contracts\HasKernel;
 use Atom\Framework\Kernel;
+use Atom\Framework\Pipeline\NoDataException;
+use Atom\Framework\Pipeline\NoPipesException;
+use Atom\Framework\Pipeline\NoProcessorException;
 use Atom\Framework\Pipeline\Pipeline;
 use Atom\Framework\Pipeline\PipelineFactory;
 use Atom\Routing\Contracts\RouterContract;
@@ -18,6 +21,7 @@ use Exception;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use ReflectionException;
 use RuntimeException;
@@ -34,15 +38,21 @@ class RequestHandler implements RequestHandlerInterface, HasKernel
     private ?Pipeline $pipeline = null;
     private PipelineFactory $pipelineFactory;
 
+    private ?ServerRequestInterface $currentRequest = null;
+
     /**
      * RequestHandler constructor.
      * @param ContainerInterface $container
+     * @param array<string|MiddlewareInterface|callable> $middlewares
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container, array $middlewares = [])
     {
         $this->container = $container;
         $this->pipelineFactory = (new PipelineFactory())
             ->via(new MiddlewareProcessor($container, $this));
+        foreach ($middlewares as $middleware) {
+            $this->add($middleware);
+        }
     }
 
     /**
@@ -97,6 +107,7 @@ class RequestHandler implements RequestHandlerInterface, HasKernel
      */
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        $this->currentRequest = $request;
         if (!$this->ensureStarted($request)) {
             return $this->pipeline->next();
         }
@@ -104,6 +115,19 @@ class RequestHandler implements RequestHandlerInterface, HasKernel
         return $this->pipeline
             ->with($alteredRequest)
             ->next();
+    }
+
+    public function reset(): self
+    {
+        $lastRequest = $this->currentRequest;
+        $this->currentRequest = null;
+        $this->pipeline = null;
+        $this->started = false;
+        $this->container()->remove(ServerRequestInterface::class);
+        if ($lastRequest != null) {
+            $this->container()->remove(get_class($lastRequest));
+        }
+        return $this;
     }
 
     public function add($middleware): RequestHandler
@@ -122,15 +146,24 @@ class RequestHandler implements RequestHandlerInterface, HasKernel
      * @param ServerRequestInterface $request
      * @return bool
      * @throws MultipleBindingException
+     * @throws NoMiddlewareException
+     * @throws NoDataException
+     * @throws NoProcessorException
      */
     private function ensureStarted(ServerRequestInterface $request): bool
     {
         if ($this->started) {
             return true;
         }
-        $this->pipeline = $this->pipelineFactory
-            ->pipe($request)
-            ->make();
+        try {
+            $this->pipeline = $this->pipelineFactory
+                ->pipe($request)
+                ->make();
+        } catch (NoPipesException $exception) {
+            throw new NoMiddlewareException(
+                "You need at least one middleware to run your application"
+            );
+        }
         $this->container()
             ->bind([ServerRequestInterface::class, get_class($request)])
             ->toObject($request);
@@ -195,4 +228,11 @@ class RequestHandler implements RequestHandlerInterface, HasKernel
         return $this;
     }
 
+    /**
+     * @return ServerRequestInterface|null
+     */
+    public function getCurrentRequest(): ?ServerRequestInterface
+    {
+        return $this->currentRequest;
+    }
 }

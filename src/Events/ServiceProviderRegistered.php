@@ -17,4 +17,12 @@ class ServiceProviderRegistered extends AbstractEvent
         $this->className = $className;
     }
 
+    /**
+     * @return string
+     */
+    public function getClassName(): string
+    {
+        return $this->className;
+    }
+
 }
